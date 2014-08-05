@@ -9,6 +9,10 @@ body {
   font-family: $serif;
 }
 
+#nav {
+  padding-top: 40px;
+}
+
 #background {
   background:
     linear-gradient(
@@ -16,7 +20,22 @@ body {
       rgba(46, 221, 190, 0.45)
     ),
     url("../images/pixel_weave.png");
-  height: 75px;
   border-top: rgba(175, 226, 211, 1);
   border-bottom: 1px solid rgba(46, 221, 190, 1);
+
+  padding-bottom: 2%;
+
+  h1 {
+    padding-top: 4%;
+    font-size: 4em;
+    margin-top: 0px;
+    text-align: center;
+    span {
+      font-size: 80%;
+    }
+  }
+
+  h2 {
+    text-align: center;
+  }
 }
