@@ -1,0 +1,22 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+
+@import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap";
+
+$serif: "adelle", "Georgia", serif;
+$sansSerif: "adelle-sans", "Helvetica", "Arial", sans-serif;
+
+body {
+  font-family: $serif;
+}
+
+#background {
+  background:
+    linear-gradient(
+      rgba(175, 226, 211, 0.75),
+      rgba(46, 221, 190, 0.45)
+    ),
+    url("../images/pixel_weave.png");
+  height: 75px;
+  border-top: rgba(175, 226, 211, 1);
+  border-bottom: 1px solid rgba(46, 221, 190, 1);
+}
