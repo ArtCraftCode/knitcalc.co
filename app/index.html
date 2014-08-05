@@ -22,17 +22,17 @@
     <div id="nav">
       <ul class="nav nav-tabs">
         <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Increase evenly</a></li>
-        <li><a href="#">Decrease evenly</a></li>
-        <li><a href="">Yardage estimates</a></li>
+        <li><a href="/#/increase">Increase evenly</a></li>
+        <li><a href="/#/decrease">Decrease evenly</a></li>
+        <li><a href="/#/yardage">Yardage estimates</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
             Patterns <span class="caret"></span>
           </a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="">Hat crown decreases</a></li>
-            <li><a href="">Sock pattern generators</a></li>
-            <li><a href="">Hat pattern generator</a></li>
+            <li><a href="/#/hat_crown">Hat crown decreases</a></li>
+            <li><a href="/#/sock">Sock pattern generators</a></li>
+            <li><a href="/#/hat">Hat pattern generator</a></li>
           </ul>
         </li>
 
@@ -53,8 +53,7 @@
       <h2>Knitting Pattern Generators & Calculators</h2>
     </div>
 
-    <div class="container" id="content">
-      <p>Pick a calculator!</p>
+    <div class="container" id="content" ng-view>
     </div>
 
 
@@ -101,7 +100,7 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/increase.js"></script>
         <!-- endbuild -->
 
     <script type="text/javascript" src="//use.typekit.net/xga6pag.js"></script>

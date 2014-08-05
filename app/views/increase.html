@@ -1,0 +1,37 @@
+<div ng-controller="IncreaseCtrl as increase">
+  <h1><span class="glyphicon glyphicon-plus"></span> Increase evenly across a row</h1>
+
+  <div class="row">
+    <div class="col-md-5">
+      <h3>Calculator</h3>
+      <form novalidate name="increaseForm">
+        <div class="control-group">
+          <label for="starting">Starting number of stitches</label>
+          <input type="number" name="starting" class="form-control" ng-model="sts.starting" required></input>
+        </div>
+
+        <div class="control-group">
+          <label for="ending">End number of stitches</label>
+          <input type="number" name="ending" class="form-control" ng-model="sts.ending" required></input>
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Calculate!" ng-disabled="!increaseForm.$valid" ng-click="calculate()"></input>
+      </form>
+    </div>
+
+    <div class="col-md-6 col-md-offset-1">
+      <h3>Results</h3>
+      <div class="alert alert-danger" ng-show="results.tooSmall">{{ errors.tooSmall }}</div>
+      <div class="alert alert-danger" ng-show="results.tooLarge">{{ errors.tooLarge }}</div>
+      <div ng-show="results.visible">
+        <p>Original number of stitches: {{ sts.starting }}</p>
+        <p>Ending number of stitches: {{ sts.ending }}</p>
+        <p>Number of stitches to increase: {{ results.difference }}</p>
+        <h4>Instructions</h4>
+
+        <p>{{ results.unbalanced }}</p>
+      </div>
+    </div>
+  </div>
+
+</div>

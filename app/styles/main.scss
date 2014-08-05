@@ -7,6 +7,7 @@ $sansSerif: "adelle-sans", "Helvetica", "Arial", sans-serif;
 
 body {
   font-family: $serif;
+  padding-bottom: 40px;
 }
 
 #nav {
@@ -30,9 +31,6 @@ body {
     font-size: 4em;
     margin-top: 0px;
     text-align: center;
-    span {
-      font-size: 80%;
-    }
   }
 
   h2 {
@@ -42,4 +40,16 @@ body {
 
 #content {
   padding-top: 40px;
+}
+
+label {
+  margin-top: 10px;
+}
+
+input {
+  margin: 5px 0px 10px 0px;
+}
+
+span.glyphicon {
+  font-size: 80%;
 }
