@@ -388,6 +388,34 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+
+    // https://github.com/bartimaeus/yeoman-s3-example
+    aws: grunt.file.readJSON('./aws.json'),
+    s3: {
+        options: {
+            key: '<%= aws.key %>',
+            secret: '<%= aws.secret %>',
+            bucket: '<%= aws.bucket %>',
+            access: 'public-read',
+            headers: {
+                // Two Year cache policy (1000 * 60 * 60 * 24 * 730)
+                'Cache-Control': 'max-age=630720000, public',
+                'Expires': new Date(Date.now() + 63072000000).toUTCString()
+            }
+        },
+        dist: {
+            options: {
+                encodePaths: true,
+                maxOperations: 20
+            },
+            upload: [{
+                src: 'dist/**',
+                dest: '',
+                rel: 'dist',
+                options: { gzip: true }
+            }]
+        }
     }
   });
 
@@ -435,6 +463,7 @@ module.exports = function (grunt) {
     'filerev',
     'usemin',
     'htmlmin'
+    's3'
   ]);
 
   grunt.registerTask('default', [
