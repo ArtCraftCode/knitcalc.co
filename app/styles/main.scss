@@ -4,9 +4,11 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 
 @import "bootstrap/bootstrap";
+@import "sticky-footer";
 
 body {
   font-family: $font-family-serif;
+  padding-top: 51px;
   padding-bottom: 40px;
 }
 
@@ -15,19 +17,12 @@ body {
 }
 
 #background {
-  background:
-    linear-gradient(
-      rgba(175, 226, 211, 0.75),
-      rgba(46, 221, 190, 0.45)
-    ),
-    url("../images/pixel_weave.png");
-  border-top: rgba(175, 226, 211, 1);
-  border-bottom: 1px solid rgba(46, 221, 190, 1);
-
-  padding-bottom: 2%;
+  background-image: url("../images/knit_large.png");
+  border-top: 1px solid $gray-lighter;
+  border-bottom: 3px solid $gray-lighter;
+  padding: 2% 0;
 
   h1 {
-    padding-top: 4%;
     font-size: 4em;
     margin-top: 0px;
     text-align: center;
