@@ -1,12 +1,12 @@
+// color scheme
+// https://kuler.adobe.com/Gelato-color-theme-4099438/edit/?copy=true
+
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 
-@import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap";
-
-$serif: "adelle", "Georgia", serif;
-$sansSerif: "adelle-sans", "Helvetica", "Arial", sans-serif;
+@import "bootstrap/bootstrap";
 
 body {
-  font-family: $serif;
+  font-family: $font-family-serif;
   padding-bottom: 40px;
 }
 
