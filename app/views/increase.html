@@ -1,37 +1,48 @@
 <div ng-controller="IncreaseCtrl as increase">
-  <h1><span class="glyphicon glyphicon-plus"></span> Increase evenly across a row</h1>
+  <div class="page-header">
+    <h1>
+      <span class="glyphicon glyphicon-plus"></span> Increase evenly across a row
+    </h1>
+  </div>
 
   <div class="row">
     <div class="col-md-5">
-      <h3>Calculator</h3>
-      <form novalidate name="increaseForm">
-        <div class="control-group">
-          <label for="starting">Starting number of stitches</label>
-          <input type="number" name="starting" class="form-control" ng-model="sts.starting" required></input>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">Calculator</h4>
         </div>
+        <div class="panel-body">
+          <form novalidate name="increaseForm">
+            <div class="control-group">
+              <label for="starting">Starting number of stitches</label>
+              <div class="alert alert-danger" ng-show="results.tooSmall">{{ errors.tooSmall }}</div>
+              <input type="number" name="starting" class="form-control" ng-model="sts.starting" required></input>
+            </div>
 
-        <div class="control-group">
-          <label for="ending">End number of stitches</label>
-          <input type="number" name="ending" class="form-control" ng-model="sts.ending" required></input>
+            <div class="control-group">
+              <label for="ending">End number of stitches</label>
+              <div class="alert alert-danger" ng-show="results.tooLarge">{{ errors.tooLarge }}</div>
+              <input type="number" name="ending" class="form-control" ng-model="sts.ending" required></input>
+            </div>
+
+            <input type="submit" class="btn" value="Calculate!" ng-disabled="!increaseForm.$valid" ng-click="calculate()"></input>
+          </form>
         </div>
-
-        <input type="submit" class="btn btn-primary" value="Calculate!" ng-disabled="!increaseForm.$valid" ng-click="calculate()"></input>
-      </form>
+      </div>
     </div>
 
-    <div class="col-md-6 col-md-offset-1">
-      <h3>Results</h3>
-      <div class="alert alert-danger" ng-show="results.tooSmall">{{ errors.tooSmall }}</div>
-      <div class="alert alert-danger" ng-show="results.tooLarge">{{ errors.tooLarge }}</div>
+    <div class="col-md-7">
       <div ng-show="results.visible">
-        <p>Original number of stitches: {{ sts.starting }}</p>
-        <p>Ending number of stitches: {{ sts.ending }}</p>
-        <p>Number of stitches to increase: {{ results.difference }}</p>
-        <h4>Instructions</h4>
-
-        <p>{{ results.unbalanced }}</p>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">Instructions</h4>
+          </div>
+          <div class="panel-body">
+            <p>To increase {{ results.difference }} sts across one row, work as follows:</p>
+            <p class="lead">{{ results.unbalanced }}</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
 </div>
