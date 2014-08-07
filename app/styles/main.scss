@@ -12,29 +12,16 @@ body {
   padding-bottom: 40px;
 }
 
-#nav {
+nav {
+  background-image: url("../images/knit.png");
+}
+
+.padding-top {
   padding-top: 40px;
 }
 
-#background {
-  background-image: url("../images/knit_large.png");
-  border-top: 1px solid $gray-lighter;
-  border-bottom: 3px solid $gray-lighter;
-  padding: 2% 0;
-
-  h1 {
-    font-size: 4em;
-    margin-top: 0px;
-    text-align: center;
-  }
-
-  h2 {
-    text-align: center;
-  }
-}
-
-#content {
-  padding-top: 40px;
+.padding-top--small {
+  padding-top: 10px;
 }
 
 label {
@@ -47,4 +34,12 @@ input {
 
 span.glyphicon {
   font-size: 80%;
+}
+
+h1.jumbo {
+  font-size: 5em;
+}
+
+.center {
+  text-align: center;
 }
