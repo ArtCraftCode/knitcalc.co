@@ -22,8 +22,8 @@ angular.module('knitcalcApp')
     $scope.results = results;
 
     var errors = {};
-    errors.tooSmall = 'The ending number is too small.';
-    errors.tooLarge = 'The difference is too large! Pick a smaller ending number.';
+    errors.tooSmall = 'The starting number is bigger than your ending number!';
+    errors.tooLarge = 'The difference is too large! Pick an ending number that is less than double the starting number.';
     $scope.errors = errors;
 
     function calculate() {
@@ -52,13 +52,14 @@ angular.module('knitcalcApp')
     }
 
     function validate() {
-      $scope.results.visible = true;
       $scope.results.tooSmall = false;
       $scope.results.tooLarge = false;
       if ($scope.results.difference >= $scope.sts.starting) {
         $scope.results.tooLarge = true;
       } else if ($scope.sts.ending <= $scope.sts.starting) {
         $scope.results.tooSmall = true;
+      } else {
+        $scope.results.visible = true;
       }
     }
 
