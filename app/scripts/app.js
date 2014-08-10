@@ -27,6 +27,14 @@ angular
         templateUrl: 'views/decrease.html',
         controller: 'DecreaseCtrl'
       })
+      .when('/convert/yards-to-meters', {
+        templateUrl: 'views/converter-yards-to-meters.html',
+        controller: 'ConverterYardsToMetersCtrl'
+      })
+      .when('/convert/meters-to-yards', {
+        templateUrl: 'views/converter-meters-to-yards.html',
+        controller: 'ConverterMetersToYardsCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

@@ -1,0 +1,38 @@
+<div ng-controller="ConverterMetersToYardsCtrl as converter">
+  <page-title></page-title>
+
+  <div class="row">
+    <div class="col-md-5">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">Calculator</h4>
+        </div>
+        <div class="panel-body">
+            <form name="mToY" novalidate>
+              <div class="control-group">
+                <label for="meters">Meters</label>
+                <input type="number" required name="meters" class="form-control" ng-model="meters">
+              </div>
+
+              <input type="submit" class="btn" value="Convert!" ng-disabled="!mToY.$valid" ng-click="calculateYards()"></input>
+            </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-7">
+      <div ng-show="results">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">Conversion</h4>
+          </div>
+          <div class="panel-body">
+            <p class="lead">{{ meters }} meters is approximately {{ yards }} yards.</p>
+            <br>
+            <p>More precisely: {{ float }} yards</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

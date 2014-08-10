@@ -10,6 +10,6 @@ angular.module('knitcalcApp')
   .directive('pageTitle', function () {
     return {
       restrict: 'E',
-      templateUrl: './views/directives/page-header.html'
+      templateUrl: './views/directives/page-title.html'
     };
   });
