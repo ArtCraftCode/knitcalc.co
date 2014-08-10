@@ -1,26 +1,4 @@
 <div ng-controller="IncreaseCtrl as increase">
-
-  <!-- DIRECTIVE: page-title -->
   <page-title></page-title>
-
-  <div class="row">
-    <div class="col-md-5">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <!-- DIRECTIVE: panel-heading -->
-        </div>
-        <div class="panel-body">
-          <!-- DIRECTIVE: simple-calculator -->
-          <simple-calculator></simple-calculator>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-7">
-      <div ng-show="results.visible">
-        <!-- DIRECTIVE: simple-calculator-results -->
-        <simple-calculator-results></simple-calculator-results>
-      </div>
-    </div>
-  </div>
+  <view-increase-decrease></view-increase-decrease>
 </div>

@@ -13,24 +13,13 @@ angular.module('knitcalcApp')
     $scope.icon = 'glyphicon-minus';
     $scope.formName = 'decreaseForm';
 
-    var sts = {};
-    sts.starting = null;
-    sts.ending = null;
-    $scope.sts = sts;
-
-    var results = {};
-    results.tooLarge = null;
-    results.tooSmall = null;
-    results.visible = null;
-    $scope.results = results;
-
     var errors = {};
     errors.tooSmall = 'The starting number is too small!';
     errors.tooLarge = 'The difference is too large! Pick an starting number that is less than double the ending number.';
     $scope.errors = errors;
 
     function calculate() {
-      $scope.results.difference = $scope.sts.starting - $scope.sts.ending;
+      difference();
       remainder();
       fancyMath();
       validate();
@@ -38,6 +27,10 @@ angular.module('knitcalcApp')
     }
 
     $scope.calculate = calculate;
+
+    function difference() {
+      $scope.results.difference = $scope.sts.starting - $scope.sts.ending;
+    }
 
     function remainder() {
       var num = $scope.sts.starting / $scope.results.difference;
