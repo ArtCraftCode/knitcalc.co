@@ -35,6 +35,10 @@ angular
         templateUrl: 'views/converter-meters-to-yards.html',
         controller: 'ConverterMetersToYardsCtrl'
       })
+      .when('/hat/generator', {
+        templateUrl: 'views/hat-generator.html',
+        controller: 'HatGeneratorCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
