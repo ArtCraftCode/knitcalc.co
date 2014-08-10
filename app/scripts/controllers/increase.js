@@ -9,7 +9,7 @@
 //  */
 
 angular.module('knitcalcApp')
-  .controller('IncreaseCtrl', function ($scope) {
+  .controller('IncreaseCtrl', function ($scope, calculator) {
     $scope.title = 'Increase evenly across a row';
     $scope.icon = 'glyphicon-plus';
     $scope.formName = 'increaseForm';
@@ -21,33 +21,14 @@ angular.module('knitcalcApp')
     $scope.errors = errors;
 
     function calculate() {
-      difference();
-      remainder();
-      fancyMath();
+      calculator.difference($scope);
+      calculator.remainder($scope);
+      calculator.fancyMath($scope, 'increase');
       validate();
       unbalancedView();
     }
 
     $scope.calculate = calculate;
-
-    function difference() {
-      $scope.results.difference = $scope.sts.ending - $scope.sts.starting;
-    }
-
-    function remainder() {
-      var num = $scope.sts.starting / $scope.results.difference;
-      if (num % 2 === 0) {
-        $scope.results.remainderTimes = 0;
-      } else {
-        $scope.results.remainderTimes = $scope.sts.starting % $scope.results.difference;
-      }
-    }
-
-    function fancyMath() {
-      $scope.results.multiSts = Math.floor($scope.sts.starting / $scope.results.difference);
-      $scope.results.multiTimes = $scope.results.difference - $scope.results.remainderTimes;
-      $scope.results.remainderSts = $scope.results.multiSts + 1;
-    }
 
     function validate() {
       $scope.results.tooSmall = false;
