@@ -9,10 +9,7 @@
 angular.module('knitcalcApp')
   .directive('pageTitle', function () {
     return {
-      template: '<div></div>',
       restrict: 'E',
-      link: function postLink(scope, element, attrs) {
-        element.text('this is the pageTitle directive');
-      }
+      templateUrl: './views/directives/page-header.html'
     };
   });
