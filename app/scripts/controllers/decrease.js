@@ -9,9 +9,6 @@
  */
 angular.module('knitcalcApp')
   .controller('DecreaseCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+    $scope.title = 'Decrease evenly across a row';
+    $scope.icon = 'glyphicon-minus';
   });
