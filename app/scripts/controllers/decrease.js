@@ -11,4 +11,5 @@ angular.module('knitcalcApp')
   .controller('DecreaseCtrl', function ($scope) {
     $scope.title = 'Decrease evenly across a row';
     $scope.icon = 'glyphicon-minus';
+    $scope.formName = 'decreaseForm';
   });
