@@ -1,0 +1,102 @@
+<div ng-controller="HatGeneratorCtrl as hat">
+  <page-title></page-title>
+
+  <div class="row">
+    <div class="col-md-5">
+      <h4>Generator</h4>
+
+      <form name="hatForm" novalidate>
+        <div class="form-group">
+          <label for="needle">
+            <p>Needle size</p>
+          </label>
+
+          <select required name="needle" id="needle" ng-model="needle" class="form-control">
+            <option id="US 0 (2.0 mm)" value="US 0 (2.0 mm)">US 0 (2.0 mm)</option>
+            <option id="US 1 (2.25 mm)" value="US 1 (2.25 mm)">US 1 (2.25 mm)</option>
+            <option id="US 1 1/2 (2.5 mm)" value="US 1 1/2 (2.5 mm)">US 1 1/2 (2.5 mm)</option>
+            <option id="US 2 (2.75 mm)" value="US 2 (2.75 mm)">US 2 (2.75 mm)</option>
+            <option id="US 2 1/2 (3.0 mm)" value="US 2 1/2 (3.0 mm)">US 2 1/2 (3.0 mm)</option>
+            <option id="US 3 (3.25 mm)" value="US 3 (3.25 mm)">US 3 (3.25 mm)</option>
+            <option id="US 4 (3.5 mm)" value="US 4 (3.5 mm)">US 4 (3.5 mm)</option>
+            <option id="US 5 (3.75 mm)" value="US 5 (3.75 mm)">US 5 (3.75 mm)</option>
+            <option id="US 6 (4.0 mm)" value="US 6 (4.0 mm)">US 6 (4.0 mm)</option>
+            <option id="US 7 (4.5 mm)" value="US 7 (4.5 mm)">US 7 (4.5 mm)</option>
+            <option id="US 8 (5.0 mm)" value="US 8 (5.0 mm)">US 8 (5.0 mm)</option>
+            <option id="US 9 (5.5 mm)" value="US 9 (5.5 mm)">US 9 (5.5 mm)</option>
+            <option id="US 10 (6.0 mm)" value="US 10 (6.0 mm)">US 10 (6.0 mm)</option>
+            <option id="US 10 1/2 (6.5 mm)" value="US 10 1/2 (6.5 mm)">US 10 1/2 (6.5 mm)</option>
+            <option id="7 mm" value="7 mm">7 mm</option>
+            <option id="US 11 (8.0 mm)" value="US 11 (8.0 mm)">US 11 (8.0 mm)</option>
+            <option id="US 13 (9.0 mm)" value="US 13 (9.0 mm)">US 13 (9.0 mm)</option>
+            <option id="US 15 (10.0 mm)" value="US 15 (10.0 mm)">US 15 (10.0 mm)</option>
+          </select>
+        </div>
+
+        <hr>
+        <div class="form-group">
+          <label for="size">
+            <p><strong>Head circumference (in inches)</strong></p>
+          </label>
+
+          <p class="help-block">Select carefully! Assumptions are made based on your selection.</p>
+
+          <select required name="size" id="size" ng-model="size" class="form-control">
+            <option id="13" value="13">Infant, 0-6 months (13 inches / 33 cm)</option>
+            <option id="15" value="15">Toddler, 6-18 months (15 inches / 38 cm)</option>
+            <option id="17" value="17">Child's small (17 inches / 43 cm)</option>
+            <option id="20" value="20">Child's medium (20 inches / 51 cm)</option>
+            <option id="21" value="21">Child's large or Women's small (21 inches / 53 cm)</option>
+            <option id="22" value="22">Women's medium or Men's small (22 inches / 56 cm)</option>
+            <option id="23" value="23">Women's large or Men's medium (23 inches / 58 cm)</option>
+            <option id="25" value="25">Men's large (25 inches / 63.5 cm)</option>
+          </select>
+        </div>
+
+        <hr>
+        <div class="form-group">
+          <label for="yarn">
+            <p>Yarn weight</p>
+          </label>
+          <select required name="yarn" id="yarn" ng-model="yarn" class="form-control">
+            <option value="Lace" id="Lace">Lace</option>
+            <option value="Light Fingering" id="Light Fingering">Light Fingering</option>
+            <option value="Fingering" id="Fingering">Fingering</option>
+            <option value="Sport" id="Sport">Sport</option>
+            <option value="DK" id="DK">DK</option>
+            <option value="Worsted" id="Worsted">Worsted</option>
+            <option value="Aran" id="Aran">Aran</option>
+            <option value="Bulky" id="Bulky">Bulky</option>
+            <option value="Super Bulky" id="Super Bulky">Super Bulky</option>
+          </select>
+        </div>
+
+        <hr>
+        <p><strong>Gauge</strong></p>
+        <p class="help-block">Stockinette or main body stitch motif</p>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="rowGauge">Number of rows per inch</label>
+              <input type="number" required ng-model="rowGauge" name="rowGauge" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="stitchGauge">Number of stitches per inch</label>
+              <input type="number" required ng-model="stitchGauge" name="stitchGauge" class="form-control">
+            </div>
+          </div>
+        </div>
+
+        <input type="submit" class="btn" ng-disabled="!hatForm.$valid" ng-click="generate()"></input>
+      </form>
+    </div>
+
+    <div class="col-md-7">
+      <div ng-show="results">
+        <h4>Results</h4>
+      </div>
+    </div>
+  </div>
+</div>
