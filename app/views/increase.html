@@ -1,32 +1,15 @@
 <div ng-controller="IncreaseCtrl as increase">
-  <div class="page-header">
-    <h1>
-      <span class="glyphicon glyphicon-plus"></span> Increase evenly across a row
-    </h1>
-  </div>
+  <page-title></page-title>
 
   <div class="row">
     <div class="col-md-5">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h4 class="panel-title">Calculator</h4>
+          <!-- DIRECTIVE: panel-heading -->
         </div>
         <div class="panel-body">
-          <form novalidate name="increaseForm">
-            <div class="control-group">
-              <label for="starting">Starting number of stitches</label>
-              <div class="alert alert-danger" ng-show="results.tooSmall">{{ errors.tooSmall }}</div>
-              <input type="number" name="starting" class="form-control" ng-model="sts.starting" required></input>
-            </div>
-
-            <div class="control-group">
-              <label for="ending">End number of stitches</label>
-              <div class="alert alert-danger" ng-show="results.tooLarge">{{ errors.tooLarge }}</div>
-              <input type="number" name="ending" class="form-control" ng-model="sts.ending" required></input>
-            </div>
-
-            <input type="submit" class="btn" value="Calculate!" ng-disabled="!increaseForm.$valid" ng-click="calculate()"></input>
-          </form>
+          <!-- DIRECTIVE: simple-calculator -->
+          <simple-calculator></simple-calculator>
         </div>
       </div>
     </div>

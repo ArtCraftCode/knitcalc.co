@@ -1,0 +1,15 @@
+<form novalidate name="{{formName}}">
+  <div class="control-group">
+    <label for="starting">Starting number of stitches</label>
+    <div class="alert alert-danger" ng-show="results.tooSmall">{{ errors.tooSmall }}</div>
+    <input type="number" name="starting" class="form-control" ng-model="sts.starting" required></input>
+  </div>
+
+  <div class="control-group">
+    <label for="ending">End number of stitches</label>
+    <div class="alert alert-danger" ng-show="results.tooLarge">{{ errors.tooLarge }}</div>
+    <input type="number" name="ending" class="form-control" ng-model="sts.ending" required></input>
+  </div>
+
+  <input type="submit" class="btn" value="Calculate!" ng-disabled="!{{formName}}.$valid" ng-click="calculate()"></input>
+</form>
