@@ -10,6 +10,9 @@
 
 angular.module('knitcalcApp')
   .controller('IncreaseCtrl', function ($scope) {
+    $scope.title = 'Increase evenly across a row';
+    $scope.icon = 'glyphicon-plus';
+
     var sts = {};
     sts.starting = null;
     sts.ending = null;
