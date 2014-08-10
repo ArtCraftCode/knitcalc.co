@@ -13,6 +13,7 @@ angular.module('knitcalcApp')
     $scope.title = 'Increase evenly across a row';
     $scope.icon = 'glyphicon-plus';
     $scope.formName = 'increaseForm';
+    $scope.action = 'increase';
 
     var errors = {};
     errors.tooSmall = 'The starting number is bigger than your ending number!';

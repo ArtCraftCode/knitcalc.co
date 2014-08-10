@@ -12,6 +12,7 @@ angular.module('knitcalcApp')
     $scope.title = 'Decrease evenly across a row';
     $scope.icon = 'glyphicon-minus';
     $scope.formName = 'decreaseForm';
+    $scope.action = 'decrease';
 
     var errors = {};
     errors.tooSmall = 'The starting number is too small!';
