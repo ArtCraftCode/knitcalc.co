@@ -1,22 +1,21 @@
 'use strict';
 
-// /**
-//  * @ngdoc function
-//  * @name knitcalcApp.controller:IncreasesCtrl
-//  * @description
-//  * # IncreasesCtrl
-//  * Controller of the knitcalcApp
-//  */
-
+/**
+ * @ngdoc function
+ * @name knitcalcApp.controller:DecreaseCtrl
+ * @description
+ * # DecreaseCtrl
+ * Controller of the knitcalcApp
+ */
 angular.module('knitcalcApp')
-  .controller('IncreaseCtrl', function ($scope) {
-    $scope.title = 'Increase evenly across a row';
-    $scope.icon = 'glyphicon-plus';
-    $scope.formName = 'increaseForm';
+  .controller('DecreaseCtrl', function ($scope) {
+    $scope.title = 'Decrease evenly across a row';
+    $scope.icon = 'glyphicon-minus';
+    $scope.formName = 'decreaseForm';
 
     var errors = {};
-    errors.tooSmall = 'The starting number is bigger than your ending number!';
-    errors.tooLarge = 'The difference is too large! Pick an ending number that is less than double the starting number.';
+    errors.tooSmall = 'The starting number is too small!';
+    errors.tooLarge = 'The difference is too large! Pick an starting number that is less than double the ending number.';
     $scope.errors = errors;
 
     function calculate() {
@@ -30,7 +29,7 @@ angular.module('knitcalcApp')
     $scope.calculate = calculate;
 
     function difference() {
-      $scope.results.difference = $scope.sts.ending - $scope.sts.starting;
+      $scope.results.difference = $scope.sts.starting - $scope.sts.ending;
     }
 
     function remainder() {
@@ -43,17 +42,17 @@ angular.module('knitcalcApp')
     }
 
     function fancyMath() {
-      $scope.results.multiSts = Math.floor($scope.sts.starting / $scope.results.difference);
+      $scope.results.multiSts = (Math.floor($scope.sts.starting / $scope.results.difference)) - 1;
       $scope.results.multiTimes = $scope.results.difference - $scope.results.remainderTimes;
-      $scope.results.remainderSts = $scope.results.multiSts + 1;
+      $scope.results.remainderSts = $scope.results.multiSts;
     }
 
     function validate() {
       $scope.results.tooSmall = false;
       $scope.results.tooLarge = false;
-      if ($scope.results.difference >= $scope.sts.starting) {
+      if ($scope.results.difference >= $scope.sts.ending) {
         $scope.results.tooLarge = true;
-      } else if ($scope.sts.ending <= $scope.sts.starting) {
+      } else if ($scope.sts.ending >= $scope.sts.starting) {
         $scope.results.tooSmall = true;
       } else {
         $scope.results.visible = true;
@@ -61,13 +60,13 @@ angular.module('knitcalcApp')
     }
 
     function unbalancedView() {
-      var base = '(k' + $scope.results.multiSts + ', m1) ' + $scope.results.multiTimes + ' times';
+      var base = '(k' + ($scope.results.multiSts - 1) + ', k2tog) ' + $scope.results.multiTimes + ' times';
       var ending = ' (' + $scope.sts.ending + ' sts total).';
 
       if ($scope.results.remainderTimes === 0) {
         $scope.results.unbalanced = base + ending;
       } else {
-        $scope.results.unbalanced = base + ', (k' + $scope.results.remainderSts + ', m1) ' + $scope.results.remainderTimes + ' times' + ending;
+        $scope.results.unbalanced = base + ', (k' + $scope.results.remainderSts + ', k2tog) ' + $scope.results.remainderTimes + ' times' + ending;
       }
     }
   });
