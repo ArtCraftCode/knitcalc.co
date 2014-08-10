@@ -27,6 +27,10 @@ angular
         templateUrl: 'views/decrease.html',
         controller: 'DecreaseCtrl'
       })
+      .when('/converterYardsToOunces', {
+        templateUrl: 'views/converter-yards-to-ounces.html',
+        controller: 'ConverterYardsToOuncesCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
