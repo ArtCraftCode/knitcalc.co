@@ -13,6 +13,13 @@ angular.module('knitcalcApp')
     $scope.icon = 'glyphicon-cog';
     $scope.results = false;
 
+    // ng-model
+    $scope.needle = '';
+    $scope.size = '';
+    $scope.yarn = '';
+    $scope.rowGauge = 0;
+    $scope.stitchGauge = 0;
+
     $scope.generate = function() {
       $scope.results = true;
     };
