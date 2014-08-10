@@ -1,14 +1,14 @@
 <div ng-controller="DecreaseCtrl as decrease">
+
+  <!-- DIRECTIVE: page-title -->
   <page-title></page-title>
 
   <div class="row">
-
     <div class="col-md-5">
       <div class="panel panel-default">
         <div class="panel-heading">
           <!-- DIRECTIVE: panel-heading -->
         </div>
-
         <div class="panel-body">
           <!-- DIRECTIVE: simple-calculator -->
           <simple-calculator></simple-calculator>
@@ -18,15 +18,8 @@
 
     <div class="col-md-7">
       <div ng-show="results.visible">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">Instructions</h4>
-          </div>
-          <div class="panel-body">
-            <p>To decrease {{ results.difference }} sts across one row, work as follows:</p>
-            <p class="lead">{{ results.unbalanced }}</p>
-          </div>
-        </div>
+        <!-- DIRECTIVE: simple-calculator-results -->
+        <simple-calculator-results></simple-calculator-results>
       </div>
     </div>
   </div>
