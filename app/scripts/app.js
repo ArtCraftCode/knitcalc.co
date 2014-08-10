@@ -23,6 +23,10 @@ angular
         templateUrl: 'views/increase.html',
         controller: 'IncreaseCtrl'
       })
+      .when('/decrease', {
+        templateUrl: 'views/decrease.html',
+        controller: 'DecreaseCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
