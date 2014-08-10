@@ -20,7 +20,6 @@ angular.module('knitcalcApp')
       $scope.float = Number($scope.yards / 1.0936).toFixed(2);
       $scope.meters = Math.floor($scope.float);
       $scope.results = true;
-      $scope.results.yToM = true;
     }
 
     $scope.calculateMeters = calculateMeters;
