@@ -30,7 +30,7 @@ angular.module('knitcalcApp')
     $scope.errors = errors;
 
     function calculate() {
-      $scope.results.difference = $scope.sts.ending - $scope.sts.starting;
+      $scope.results.difference = $scope.sts.starting - $scope.sts.ending;
       remainder();
       fancyMath();
       validate();
@@ -49,17 +49,17 @@ angular.module('knitcalcApp')
     }
 
     function fancyMath() {
-      $scope.results.multiSts = Math.floor($scope.sts.starting / $scope.results.difference);
+      $scope.results.multiSts = (Math.floor($scope.sts.starting / $scope.results.difference)) - 1;
       $scope.results.multiTimes = $scope.results.difference - $scope.results.remainderTimes;
-      $scope.results.remainderSts = $scope.results.multiSts + 1;
+      $scope.results.remainderSts = $scope.results.multiSts;
     }
 
     function validate() {
       $scope.results.tooSmall = false;
       $scope.results.tooLarge = false;
-      if ($scope.results.difference >= $scope.sts.starting) {
+      if ($scope.results.difference >= $scope.sts.ending) {
         $scope.results.tooLarge = true;
-      } else if ($scope.sts.ending <= $scope.sts.starting) {
+      } else if ($scope.sts.ending >= $scope.sts.starting) {
         $scope.results.tooSmall = true;
       } else {
         $scope.results.visible = true;
@@ -67,13 +67,13 @@ angular.module('knitcalcApp')
     }
 
     function unbalancedView() {
-      var base = '(k' + $scope.results.multiSts + ', m1) ' + $scope.results.multiTimes + ' times';
+      var base = '(k' + ($scope.results.multiSts - 1) + ', k2tog) ' + $scope.results.multiTimes + ' times';
       var ending = ' (' + $scope.sts.ending + ' sts total).';
 
       if ($scope.results.remainderTimes === 0) {
         $scope.results.unbalanced = base + ending;
       } else {
-        $scope.results.unbalanced = base + ', (k' + $scope.results.remainderSts + ', m1) ' + $scope.results.remainderTimes + ' times' + ending;
+        $scope.results.unbalanced = base + ', (k' + $scope.results.remainderSts + ', k2tog) ' + $scope.results.remainderTimes + ' times' + ending;
       }
     }
   });
