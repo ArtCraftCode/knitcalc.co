@@ -35,6 +35,10 @@ angular
         templateUrl: 'views/converter-meters-to-yards.html',
         controller: 'ConverterMetersToYardsCtrl'
       })
+      .when('/abbreviations', {
+        templateUrl: 'views/abbreviations.html',
+        controller: 'AbbreviationsCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
