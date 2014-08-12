@@ -1,0 +1,8 @@
+.alert {
+  padding: 10px;
+  margin: 0px 10px;
+}
+
+.alert-danger {
+  background-color: lighten($danger, 15%);
+}
