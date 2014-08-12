@@ -10,7 +10,6 @@
 angular.module('knitcalcApp')
   .controller('ConverterMetersToYardsCtrl', function ($scope) {
     $scope.title = 'Convert Meters to Yards';
-    $scope.icon = 'glyphicon-arrow-right';
 
     $scope.yards = null;
     $scope.meters = null;
