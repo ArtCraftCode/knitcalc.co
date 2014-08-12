@@ -1,36 +1,19 @@
 // color scheme
 // https://kuler.adobe.com/Gelato-color-theme-4099438/edit/?copy=true
 
-@import "sticky-footer";
+@import "base/var";
 
-body {
-  font-family: "adelle", "Georgia", Georgia, serif;
-  padding-top: 51px;
-  padding-bottom: 40px;
+@import "components/alerts";
+
+@import "layout/sticky-footer";
+
+html, button, input, select, textarea, .pure-g [class *= "pure-u"], body {
+  font-family: $serif;
+  color: $gray;
 }
 
-nav {
+.nav {
   background-image: url("../images/knit.png");
-}
-
-.padding-top {
-  padding-top: 40px;
-}
-
-.padding-top--small {
-  padding-top: 10px;
-}
-
-label {
-  margin-top: 10px;
-}
-
-input {
-  margin: 5px 0px 10px 0px;
-}
-
-span.glyphicon {
-  font-size: 80%;
 }
 
 h1.jumbo {
@@ -39,8 +22,4 @@ h1.jumbo {
 
 .center {
   text-align: center;
-}
-
-p.lead {
-  margin-bottom: 0px;
 }
