@@ -11,7 +11,6 @@
 angular.module('knitcalcApp')
   .controller('IncreaseCtrl', function ($scope, calculator) {
     $scope.title = 'Increase evenly across a row';
-    $scope.icon = 'glyphicon-plus';
     $scope.formName = 'increaseForm';
     $scope.action = 'increase';
 

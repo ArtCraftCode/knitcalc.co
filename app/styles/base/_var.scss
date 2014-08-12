@@ -1,0 +1,16 @@
+// COLORS
+$gray: #333333;
+$middleGray: lighten($gray, 10%);
+$lightGray: lighten($gray, 25%);
+$lightestGray: lighten($gray, 30%);
+
+$red: #FF1828;
+$pink: #FF5F60;
+
+// COLOR ALIASES // SEMANTIC NAMES
+$primary: $pink;
+$danger: $red;
+
+// FONTS
+$serif: "adelle", "Georgia", Georgia, serif;
+$sansSerif: "Helvetica", Helvetica, Arial, sans-serif;

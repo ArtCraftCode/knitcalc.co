@@ -1,27 +1,9 @@
-<div class="row">
-  <div class="col-md-5">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title">Calculator</h4>
-      </div>
-      <div class="panel-body">
-        <!-- DIRECTIVE: simple-calculator -->
-        <simple-calculator></simple-calculator>
-      </div>
-    </div>
-  </div>
+<h2>Calculator</h2>
+<!-- DIRECTIVE: simple-calculator -->
+<simple-calculator></simple-calculator>
 
-  <div class="col-md-7">
-    <div ng-show="results.visible">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">Instructions</h4>
-        </div>
-        <div class="panel-body">
-          <p>To {{ action }} {{ results.difference }} sts across one row, work as follows:</p>
-          <p class="lead">{{ results.unbalanced }}</p>
-        </div>
-      </div>
-    </div>
-  </div>
+<div ng-show="results.visible">
+  <h2>Instructions</h2>
+  <p>To {{ action }} {{ results.difference }} sts across one row, work as follows:</p>
+  <pre><code>{{ results.unbalanced }}</code></pre>
 </div>

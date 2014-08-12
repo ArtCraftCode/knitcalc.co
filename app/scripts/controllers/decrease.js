@@ -10,7 +10,6 @@
 angular.module('knitcalcApp')
   .controller('DecreaseCtrl', function ($scope, calculator) {
     $scope.title = 'Decrease evenly across a row';
-    $scope.icon = 'glyphicon-minus';
     $scope.formName = 'decreaseForm';
     $scope.action = 'decrease';
 
@@ -42,7 +41,13 @@ angular.module('knitcalcApp')
     }
 
     function unbalancedView() {
-      var base = '(k' + ($scope.results.multiSts - 1) + ', k2tog) ' + $scope.results.multiTimes + ' times';
+      var start;
+      if ($scope.results.multiSts === 1) {
+        start = '(';
+      } else {
+        start = '(k' + $scope.results.multiSts - 1 + ', ';
+      }
+      var base = start + 'k2tog) ' + $scope.results.multiTimes + ' times';
       var ending = ' (' + $scope.sts.ending + ' sts total).';
 
       if ($scope.results.remainderTimes === 0) {

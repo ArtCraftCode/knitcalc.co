@@ -1,38 +1,19 @@
 <div ng-controller="ConverterYardsToMetersCtrl as converter">
   <page-title></page-title>
+  <h2>Calculator</h2>
 
-  <div class="row">
-    <div class="col-md-5">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">Calculator</h4>
-        </div>
-        <div class="panel-body">
-            <form name="yToM" novalidate>
-              <div class="control-group">
-                <label for="yards">Yards</label>
-                <input type="number" required name="yards" class="form-control" ng-model="yards">
-              </div>
+  <form name="yToM" novalidate class="pure-form pure-form-stacked">
+    <label for="yards">Yards</label>
+    <input type="number" required name="yards" ng-model="yards">
 
-              <input type="submit" class="btn" value="Convert!" ng-disabled="!yToM.$valid" ng-click="calculateMeters()"></input>
-            </form>
-        </div>
-      </div>
-    </div>
+    <input type="submit" class="pure-button" value="Convert!" ng-disabled="!yToM.$valid" ng-click="calculateMeters()"></input>
+  </form>
 
-    <div class="col-md-7">
-      <div ng-show="results">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">Conversion</h4>
-          </div>
-          <div class="panel-body">
-            <p class="lead">{{ yards }} yards is approximately {{ meters }} meters.</p>
-            <br>
-            <p>More precisely: {{ float }} meters</p>
-          </div>
-        </div>
-      </div>
-    </div>
+
+  <div ng-show="results">
+    <h2>Conversion</h2>
+
+    <p>{{ yards }} yards is approximately {{ meters }} meters.</p>
+    <p>More precisely: {{ float }} meters</p>
   </div>
 </div>

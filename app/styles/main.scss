@@ -1,49 +1,49 @@
 // color scheme
 // https://kuler.adobe.com/Gelato-color-theme-4099438/edit/?copy=true
 
-$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
-
-@import "bootstrap/bootstrap";
-@import "sticky-footer";
+@import "base/var";
+@import "components/alerts";
+@import "layout/sticky-footer";
+@import "layout/menu";
 
 body {
-  font-family: $font-family-serif;
-  padding-top: 51px;
-  padding-bottom: 40px;
+  font-family: $serif;
+  color: $gray;
+  font-size: 1.25em;
 }
 
-nav {
-  background-image: url("../images/knit.png");
+p {
+  line-height: 1.5em;
 }
 
-.padding-top {
-  padding-top: 40px;
+a {
+  color: $pink;
+  text-decoration: none;
 }
 
-.padding-top--small {
-  padding-top: 10px;
-}
-
-label {
-  margin-top: 10px;
-}
-
-input {
-  margin: 5px 0px 10px 0px;
-}
-
-span.glyphicon {
-  font-size: 80%;
-}
-
-h1.jumbo {
-  font-size: 5em;
+#container {
+  max-width: 840px;
+  padding: 5% 2%;
+  margin: 0 auto;
 }
 
 .center {
   text-align: center;
 }
 
-p.lead {
-  margin-bottom: 0px;
+.header {
+  h1.jumbo {
+    font-size: 4em;
+    padding: 0;
+    margin: 0;
+  }
+
+  h2 {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.bold {
+  font-weight: 700;
 }
