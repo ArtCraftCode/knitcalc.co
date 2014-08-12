@@ -5,10 +5,12 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="styles/reset.css">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/pure/pure.css" />
+    <link rel="stylesheet" href="styles/pure/forms.css" />
+    <link rel="stylesheet" href="styles/pure/buttons.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -19,32 +21,25 @@
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <div class="pure-menu pure-menu-open">
-      <a class="pure-menu-heading">knitcalc.co</a>
+
+    <div class="menu">
       <ul>
+        <li><a class="bold" href="/#/">knitcalc.co</a></li>
         <li><a href="/#/increase">Increase evenly</a></li>
         <li><a href="/#/decrease">Decrease evenly</a></li>
         <li><a href="/#/yardage">Yardage estimates</a></li>
-
-        <li class="pure-menu-heading">Hats</li>
         <li><a href="/#/hat/decreases">Hat crown decreases</a></li>
         <li><a href="/#/hat/generator">Hat pattern generator</a></li>
-
-        <li class="pure-menu-heading">Socks</li>
-        <li><a href="/#/sock/heels">Sock heel math</a></li>
+        <li><a href="/#/sock/heels">Sock heels</a></li>
         <li><a href="/#/sock/generator">Sock pattern generator</a></li>
-
-        <li class="pure-menu-heading">Converters</li>
-        <li><a href="/#/convert/yards-to-meters">Yards <span class="glyphicon glyphicon-arrow-left"></span> <span class="glyphicon glyphicon-arrow-right"></span> Meters</a></a></li>
-        <li><a href="/#/convert/meters-to-yards">Meters <span class="glyphicon glyphicon-arrow-left"></span> <span class="glyphicon glyphicon-arrow-right"></span> Yards</a></li>
+        <li><a href="/#/convert/yards-to-meters">Convert yards to meters</a></a></li>
+        <li><a href="/#/convert/meters-to-yards">Convert meters to yards</a></li>
       </ul>
     </div>
-
-    <div class="container padding-top" id="content" ng-view>
+    <div id="container">
+      <div id="content" ng-view>
+      </div>
     </div>
-
-    <div class="footer"></div>
-
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
