@@ -1,13 +1,10 @@
 // color scheme
 // https://kuler.adobe.com/Gelato-color-theme-4099438/edit/?copy=true
 
-$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
-
-@import "bootstrap/bootstrap";
 @import "sticky-footer";
 
 body {
-  font-family: $font-family-serif;
+  font-family: "adelle", "Georgia", Georgia, serif;
   padding-top: 51px;
   padding-bottom: 40px;
 }
