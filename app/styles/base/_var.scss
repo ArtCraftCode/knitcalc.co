@@ -1,15 +1,17 @@
 // COLORS
-$teal: #80DDBE;
-$lightBlue: #AFE2D3;
-$red: #FC584C;
-$pink: #FF8D8D;
-$lightGray: #F3EFE6;
 $gray: #333333;
+$middleGray: lighten($gray, 10%);
+$lightGray: lighten($gray, 25%);
+$lightestGray: lighten($gray, 30%);
+
+$red: #FF1828;
+$pink: #FF5F60;
 
 // COLOR ALIASES // SEMANTIC NAMES
-$primary: $teal;
+$primary: $pink;
 $danger: $red;
-$info: $lightBlue;
 
 // FONTS
 $serif: "adelle", "Georgia", Georgia, serif;
+$sansSerif: "Helvetica", Helvetica, Arial, sans-serif;
+$script: "ff-prater-script-web", $sansSerif;
