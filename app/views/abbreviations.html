@@ -1,1 +1,14 @@
-<p>This is the abbreviations view.</p>
+<page-title></page-title>
+
+<table class="pure-table pure-table-horizontal">
+  <thead>
+    <th>Abbreviation</th>
+    <th>Definition</th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="thing in abbreviations">
+      <td>{{ thing.stitch }}</td>
+      <td>{{ thing.definition }}</td>
+    </tr>
+  </tbody>
+</table>
