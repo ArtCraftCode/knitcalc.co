@@ -8,4 +8,6 @@
  * Controller of the knitcalcApp
  */
 angular.module('knitcalcApp')
-  .controller('MainCtrl', function ($scope) {});
+  .controller('MainCtrl', function ($scope) {
+    $scope.title = 'knitcalc.co';
+  });
