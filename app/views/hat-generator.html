@@ -8,24 +8,7 @@
       </label>
 
       <select required name="needle" id="needle" ng-model="needle" class="form-control">
-        <option id="US 0 (2.0 mm)" value="US 0 (2.0 mm)">US 0 (2.0 mm)</option>
-        <option id="US 1 (2.25 mm)" value="US 1 (2.25 mm)">US 1 (2.25 mm)</option>
-        <option id="US 1 1/2 (2.5 mm)" value="US 1 1/2 (2.5 mm)">US 1 1/2 (2.5 mm)</option>
-        <option id="US 2 (2.75 mm)" value="US 2 (2.75 mm)">US 2 (2.75 mm)</option>
-        <option id="US 2 1/2 (3.0 mm)" value="US 2 1/2 (3.0 mm)">US 2 1/2 (3.0 mm)</option>
-        <option id="US 3 (3.25 mm)" value="US 3 (3.25 mm)">US 3 (3.25 mm)</option>
-        <option id="US 4 (3.5 mm)" value="US 4 (3.5 mm)">US 4 (3.5 mm)</option>
-        <option id="US 5 (3.75 mm)" value="US 5 (3.75 mm)">US 5 (3.75 mm)</option>
-        <option id="US 6 (4.0 mm)" value="US 6 (4.0 mm)">US 6 (4.0 mm)</option>
-        <option id="US 7 (4.5 mm)" value="US 7 (4.5 mm)">US 7 (4.5 mm)</option>
-        <option id="US 8 (5.0 mm)" value="US 8 (5.0 mm)">US 8 (5.0 mm)</option>
-        <option id="US 9 (5.5 mm)" value="US 9 (5.5 mm)">US 9 (5.5 mm)</option>
-        <option id="US 10 (6.0 mm)" value="US 10 (6.0 mm)">US 10 (6.0 mm)</option>
-        <option id="US 10 1/2 (6.5 mm)" value="US 10 1/2 (6.5 mm)">US 10 1/2 (6.5 mm)</option>
-        <option id="7 mm" value="7 mm">7 mm</option>
-        <option id="US 11 (8.0 mm)" value="US 11 (8.0 mm)">US 11 (8.0 mm)</option>
-        <option id="US 13 (9.0 mm)" value="US 13 (9.0 mm)">US 13 (9.0 mm)</option>
-        <option id="US 15 (10.0 mm)" value="US 15 (10.0 mm)">US 15 (10.0 mm)</option>
+        <option ng-repeat="needle in needles" value="{{ needle.value }}" id="{{ needle.value }}">{{ needle.label }}</option>
       </select>
     </div>
 
@@ -88,7 +71,12 @@
     <input type="submit" class="btn" ng-disabled="!hatForm.$valid" ng-click="generate()"></input>
   </form>
 
-  <div ng-show="results">
+  <div>
     <h4>Results</h4>
+    Needle: {{ needle }}<br>
+    Size: {{ size }}<br>
+    Yarn: {{ yarn }}<br>
+    Row gauge: {{ rowGauge }}<br>
+    Stitch gauge: {{ stitchGauge }}<br>
   </div>
 </div>
