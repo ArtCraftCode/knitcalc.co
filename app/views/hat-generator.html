@@ -2,66 +2,51 @@
   <page-title></page-title>
 
   <form name="hatForm" novalidate class="pure-form pure-form-stacked">
-    <div class="form-group">
-      <label for="needle">
-        <p>Needle size</p>
-      </label>
+    <label for="needle">
+      <p>Needle size</p>
+    </label>
 
-      <select required name="needle" id="needle" ng-model="needle" class="form-control">
-        <option ng-repeat="needle in needles" value="{{ needle.value }}">{{ needle.label }}</option>
-      </select>
-    </div>
+    <select required name="needle" id="needle" ng-model="needle">
+      <option ng-repeat="needle in needles" value="{{ needle.value }}">{{ needle.label }}</option>
+    </select>
 
-    <hr>
-    <div class="form-group">
-      <label for="size">
-        <p><strong>Head circumference (in inches)</strong></p>
-      </label>
+    <label for="size">
+      <p><strong>Head circumference (in inches)</strong></p>
+    </label>
 
-      <p class="help-block">Select carefully! Assumptions are made based on your selection.</p>
+    <p class="help-block">Select carefully! Assumptions are made based on your selection.</p>
 
-      <select required name="size" id="size" ng-model="size" class="form-control">
-        <option ng-repeat="size in sizes" value="{{ size.value }}">{{ size.label }}</option>
-      </select>
-    </div>
+    <select required name="size" id="size" ng-model="size">
+      <option ng-repeat="size in sizes" value="{{ size.value }}">{{ size.label }}</option>
+    </select>
 
-    <hr>
-    <div class="form-group">
-      <label for="yarn">
-        <p>Yarn weight</p>
-      </label>
-      <select required name="yarn" id="yarn" ng-model="yarn" class="form-control">
-        <option value="Lace" id="Lace">Lace</option>
-        <option value="Light Fingering" id="Light Fingering">Light Fingering</option>
-        <option value="Fingering" id="Fingering">Fingering</option>
-        <option value="Sport" id="Sport">Sport</option>
-        <option value="DK" id="DK">DK</option>
-        <option value="Worsted" id="Worsted">Worsted</option>
-        <option value="Aran" id="Aran">Aran</option>
-        <option value="Bulky" id="Bulky">Bulky</option>
-        <option value="Super Bulky" id="Super Bulky">Super Bulky</option>
-      </select>
-    </div>
+    <label for="yarn">
+      <p>Yarn weight</p>
+    </label>
 
-    <hr>
+    <select required name="yarn" id="yarn" ng-model="yarn">
+      <option value="Lace" id="Lace">Lace</option>
+      <option value="Light Fingering" id="Light Fingering">Light Fingering</option>
+      <option value="Fingering" id="Fingering">Fingering</option>
+      <option value="Sport" id="Sport">Sport</option>
+      <option value="DK" id="DK">DK</option>
+      <option value="Worsted" id="Worsted">Worsted</option>
+      <option value="Aran" id="Aran">Aran</option>
+      <option value="Bulky" id="Bulky">Bulky</option>
+      <option value="Super Bulky" id="Super Bulky">Super Bulky</option>
+    </select>
+
+
     <p><strong>Gauge</strong></p>
     <p class="help-block">Stockinette or main body stitch motif</p>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="form-group">
-          <label for="rowGauge">Number of rows per inch</label>
-          <input type="number" required ng-model="rowGauge" name="rowGauge" class="form-control">
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group">
-          <label for="stitchGauge">Number of stitches per inch</label>
-          <input type="number" required ng-model="stitchGauge" name="stitchGauge" class="form-control">
-        </div>
-      </div>
-    </div>
 
-    <input type="submit" class="btn" ng-disabled="!hatForm.$valid" ng-click="generate()"></input>
+    <label for="rowGauge">Number of rows per inch</label>
+    <input type="number" required ng-model="rowGauge" name="rowGauge">
+
+    <label for="stitchGauge">Number of stitches per inch</label>
+    <input type="number" required ng-model="stitchGauge" name="stitchGauge">
+
+    <input type="submit" class="pure-button" ng-disabled="!hatForm.$valid" ng-click="generate()"></input>
   </form>
 
   <div>
