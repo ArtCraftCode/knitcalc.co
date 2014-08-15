@@ -8,7 +8,7 @@
       </label>
 
       <select required name="needle" id="needle" ng-model="needle" class="form-control">
-        <option ng-repeat="needle in needles" value="{{ needle.value }}" id="{{ needle.value }}">{{ needle.label }}</option>
+        <option ng-repeat="needle in needles" value="{{ needle.value }}">{{ needle.label }}</option>
       </select>
     </div>
 
@@ -21,14 +21,7 @@
       <p class="help-block">Select carefully! Assumptions are made based on your selection.</p>
 
       <select required name="size" id="size" ng-model="size" class="form-control">
-        <option id="13" value="13">Infant, 0-6 months (13 inches / 33 cm)</option>
-        <option id="15" value="15">Toddler, 6-18 months (15 inches / 38 cm)</option>
-        <option id="17" value="17">Child's small (17 inches / 43 cm)</option>
-        <option id="20" value="20">Child's medium (20 inches / 51 cm)</option>
-        <option id="21" value="21">Child's large or Women's small (21 inches / 53 cm)</option>
-        <option id="22" value="22">Women's medium or Men's small (22 inches / 56 cm)</option>
-        <option id="23" value="23">Women's large or Men's medium (23 inches / 58 cm)</option>
-        <option id="25" value="25">Men's large (25 inches / 63.5 cm)</option>
+        <option ng-repeat="size in sizes" value="{{ size.value }}">{{ size.label }}</option>
       </select>
     </div>
 
