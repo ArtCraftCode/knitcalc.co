@@ -19,6 +19,7 @@ angular.module('knitcalcApp')
     $scope.yarn = '';
     $scope.rowGauge = 0;
     $scope.stitchGauge = 0;
+    $scope.pattern = {};
 
     $scope.needles = [
       { 'value': '2.0', 'label': 'US 0 (2.0 mm)' },
@@ -55,13 +56,15 @@ angular.module('knitcalcApp')
 
     $scope.generate = function() {
       $scope.results = true;
-      $scope.pattern = {};
+      $scope.pattern.ease = Math.floor($scope.size * 0.85);
+
       calculator.gauge($scope);
       calculator.radius($scope);
       slope();
       squareInches();
       mutiples();
       generateText();
+      setNeedles();
     };
 
     function slope() {
@@ -129,5 +132,19 @@ angular.module('knitcalcApp')
         $scope.pattern.ribbingRows = '2 inches (' + ribbing + ' rows)';
         $scope.pattern.bodyHeight = '6.5 inches (' + body + ' rows)';
       }
+    }
+
+    function setNeedles() {
+      $scope.needles.forEach(function(el, index, arr) {
+        if ($scope.needle === el.value) {
+          $scope.pattern.needle = el.label;
+
+          if (index > 0) {
+            $scope.pattern.smallerNeedle = arr[index-1].label;
+          } else {
+            $scope.pattern.smallerNeedle = el.label;
+          }
+        }
+      });
     }
   });
