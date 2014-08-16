@@ -55,9 +55,10 @@ angular.module('knitcalcApp')
       },
 
       estimateYardage: function($scope) {
-        var sqIn = $scope.pattern.squreInches;
+        var sqIn = $scope.pattern.squareInches;
         var ydF = $scope.pattern.yardageFactor;
-        $scope.pattern.estimatedYardage = Math.floor(ydF * sqIn * 1.1);
+        $scope.pattern.estimatedYardage = Math.floor(ydF * sqIn);
+        $scope.pattern.estimatedMeters = Math.floor($scope.pattern.estimatedYardage / 1.0936);
       }
     };
   });
