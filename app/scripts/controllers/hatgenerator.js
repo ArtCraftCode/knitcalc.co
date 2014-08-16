@@ -8,7 +8,7 @@
  * Controller of the knitcalcApp
  */
 angular.module('knitcalcApp')
-  .controller('HatGeneratorCtrl', function ($scope, calculator, needles) {
+  .controller('HatGeneratorCtrl', function ($scope, calculator, hatCalculator, needles) {
     $scope.title = 'Hat Pattern Generator';
     $scope.icon = 'glyphicon-cog';
     $scope.results = false;
@@ -52,7 +52,7 @@ angular.module('knitcalcApp')
 
       calculator.gauge($scope);
       calculator.radius($scope);
-      slope();
+      hatCalculator.slope($scope);
       squareInches();
       yardageFactor();
       calculator.estimateYardage($scope);
@@ -62,18 +62,6 @@ angular.module('knitcalcApp')
       slouch();
       beanie();
     };
-
-    function slope() {
-      if ($scope.size === 13) {
-        $scope.pattern.slope = 6;
-      } else if ($scope.size === 15) {
-        $scope.pattern.slope = 8.5;
-      } else if ($scope.size >= 21) {
-        $scope.pattern.slope = 14.5;
-      } else {
-        $scope.pattern.slope = 18;
-      }
-    }
 
     function squareInches() {
       var one = 3.142 * $scope.pattern.radius * $scope.pattern.slope;

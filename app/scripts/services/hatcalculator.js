@@ -9,15 +9,17 @@
  */
 angular.module('knitcalcApp')
   .factory('hatCalculator', function () {
-    // Service logic
-    // ...
-
-    var meaningOfLife = 42;
-
-    // Public API here
     return {
-      someMethod: function () {
-        return meaningOfLife;
+      slope: function ($scope) {
+        if ($scope.size === 13) {
+          $scope.pattern.slope = 6;
+        } else if ($scope.size === 15) {
+          $scope.pattern.slope = 8.5;
+        } else if ($scope.size >= 21) {
+          $scope.pattern.slope = 14.5;
+        } else {
+          $scope.pattern.slope = 18;
+        }
       }
     };
   });
