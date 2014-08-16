@@ -121,17 +121,25 @@ angular.module('knitcalcApp')
       var ribbing, body;
 
       if ($scope.size === 13) {
-        $scope.pattern.ribbingRows = 6;
-        $scope.pattern.bodyHeight = '';
+        ribbing = Math.floor($scope.rowGauge);
+        body = Math.floor($scope.rowGauge * 2.5);
+        $scope.pattern.ribbingRows = '1 inch (' + ribbing + ' rows)';
+        $scope.pattern.bodyHeight = '2.5 inches (' + body + ' rows )';
       } else if ($scope.size === 15) {
-        $scope.pattern.ribbingRows = 8.5;
-        $scope.pattern.bodyHeight = '';
+        ribbing = Math.floor($scope.rowGauge * 1.5);
+        body = Math.floor($scope.rowGauge * 4);
+        $scope.pattern.ribbingRows = '1.5 inches (' + ribbing + ' rows)';
+        $scope.pattern.bodyHeight = '4 inches (' + body + ' rows)';
       } else if ($scope.size >= 21) {
-        $scope.pattern.ribbingRows = 14.5;
-        $scope.pattern.bodyHeight = '';
+        ribbing = Math.floor($scope.rowGauge * 1.5);
+        body = Math.floor($scope.rowGauge * 5);
+        $scope.pattern.ribbingRows = '1.5 inches (' + ribbing + ' rows)';
+        $scope.pattern.bodyHeight = '5 inches (' + body + ' rows)';
       } else {
-        $scope.pattern.ribbingRows = 18;
-        $scope.pattern.bodyHeight = '';
+        ribbing = Math.floor($scope.rowGauge * 2);
+        body = Math.floor($scope.rowGauge * 6.5);
+        $scope.pattern.ribbingRows = '2 inches (' + ribbing + ' rows)';
+        $scope.pattern.bodyHeight = '6.5 inches (' + body + ' rows)';
       }
     }
   });
