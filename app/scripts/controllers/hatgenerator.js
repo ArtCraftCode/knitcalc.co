@@ -20,7 +20,7 @@ angular.module('knitcalcApp')
     $scope.stitchGauge = 0;
     $scope.pattern = {};
 
-    $scope.needles = needles.list();
+    $scope.needles = needles.list;
 
     $scope.sizes = [
       { 'value': '13', label: 'Infant, 0-6 months (13 inches / 33 cm)' },
@@ -55,7 +55,7 @@ angular.module('knitcalcApp')
       squareInches();
       yardageFactor();
       calculator.estimateYardage($scope);
-      mutiples();
+      hatCalculator.multiples($scope);
       generateText();
       setNeedles();
       hatCalculator.slouch($scope);
@@ -74,23 +74,6 @@ angular.module('knitcalcApp')
           $scope.pattern.yardageFactor = el.factor;
         }
       });
-    }
-
-    function mutiples() {
-      var raw = Math.floor($scope.size * $scope.stitchGauge);
-      var round8 = raw + 8 - (raw % 8);
-      var round9 = raw + 9 - (raw % 9);
-      var min = Math.min(round8, round9);
-
-      if (min % 8 === 0) {
-        $scope.pattern.castOn = min;
-        $scope.pattern.multiple = 8;
-        $scope.pattern.numDecreases = 8;
-      } else if (min % 9 === 0) {
-        $scope.pattern.castOn = min;
-        $scope.pattern.multiple = 9;
-        $scope.pattern.numDecreases = 9;
-      }
     }
 
     function generateText() {

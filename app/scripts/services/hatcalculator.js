@@ -32,6 +32,23 @@ angular.module('knitcalcApp')
         var raw = $scope.pattern.castOn * 0.90;
         $scope.pattern.beanie = Math.floor(raw + $scope.pattern.multiple - (raw % $scope.pattern.multiple));
         $scope.pattern.beanieDecrease = ($scope.pattern.beanie / $scope.pattern.numDecreases) - 2;
+      },
+
+      multiples: function($scope) {
+        var raw = Math.floor($scope.size * $scope.stitchGauge);
+        var round8 = raw + 8 - (raw % 8);
+        var round9 = raw + 9 - (raw % 9);
+        var min = Math.min(round8, round9);
+
+        if (min % 8 === 0) {
+          $scope.pattern.castOn = min;
+          $scope.pattern.multiple = 8;
+          $scope.pattern.numDecreases = 8;
+        } else if (min % 9 === 0) {
+          $scope.pattern.castOn = min;
+          $scope.pattern.multiple = 9;
+          $scope.pattern.numDecreases = 9;
+        }
       }
     };
   });
