@@ -41,6 +41,17 @@ angular.module('knitcalcApp')
         }
 
         $scope.results.multiTimes = $scope.results.difference - $scope.results.remainderTimes;
+      },
+
+      gauge: function($scope) {
+        $scope.pattern.rowGauge = $scope.rowGauge;
+        $scope.pattern.stitchGauge = $scope.stitchGauge;
+        $scope.pattern.rowGauge4 = $scope.rowGauge * 4;
+        $scope.pattern.stitchGauge4 = $scope.stitchGauge * 4;
+      },
+
+      radius: function($scope) {
+        $scope.pattern.radius = $scope.size/(2*3.142);
       }
     };
   });

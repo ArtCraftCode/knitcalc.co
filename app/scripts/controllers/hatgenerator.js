@@ -8,7 +8,7 @@
  * Controller of the knitcalcApp
  */
 angular.module('knitcalcApp')
-  .controller('HatGeneratorCtrl', function ($scope) {
+  .controller('HatGeneratorCtrl', function ($scope, calculator) {
     $scope.title = 'Hat Pattern Generator';
     $scope.icon = 'glyphicon-cog';
     $scope.results = false;
@@ -56,24 +56,13 @@ angular.module('knitcalcApp')
     $scope.generate = function() {
       $scope.results = true;
       $scope.pattern = {};
-      gauge();
-      radius();
+      calculator.gauge($scope);
+      calculator.radius($scope);
       slope();
       squareInches();
       mutiples();
       generateText();
     };
-
-    function gauge() {
-      $scope.pattern.rowGauge = $scope.rowGauge;
-      $scope.pattern.stitchGauge = $scope.stitchGauge;
-      $scope.pattern.rowGauge4 = $scope.rowGauge * 4;
-      $scope.pattern.stitchGauge4 = $scope.stitchGauge * 4;
-    }
-
-    function radius() {
-      $scope.pattern.radius = $scope.size/(2*3.142);
-    }
 
     function slope() {
       if ($scope.size === 13) {
