@@ -28,6 +28,7 @@ angular.module('knitcalcApp')
       $scope.results = true;
       $scope.pattern.ease = Math.floor($scope.size * 0.85);
 
+      hatCalculator.size($scope);
       calculator.gauge($scope);
       calculator.radius($scope);
       hatCalculator.slope($scope);
@@ -38,6 +39,7 @@ angular.module('knitcalcApp')
       needles.setNeedles($scope);
       hatCalculator.slouch($scope);
       hatCalculator.beanie($scope);
+      hatCalculator.crownDecreases($scope);
       generateText();
     };
 
