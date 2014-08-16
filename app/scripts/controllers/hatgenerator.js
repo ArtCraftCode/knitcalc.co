@@ -8,7 +8,7 @@
  * Controller of the knitcalcApp
  */
 angular.module('knitcalcApp')
-  .controller('HatGeneratorCtrl', function ($scope, calculator, hatCalculator, needles) {
+  .controller('HatGeneratorCtrl', function ($scope, calculator, hatCalculator, needles, yarns) {
     $scope.title = 'Hat Pattern Generator';
     $scope.results = false;
 
@@ -21,6 +21,7 @@ angular.module('knitcalcApp')
     $scope.pattern = {};
 
     $scope.needles = needles.list;
+    $scope.yarnWeights = yarns.list;
 
     $scope.sizes = [
       { 'value': '13', label: 'Infant, 0-6 months (13 inches / 33 cm)' },
@@ -33,18 +34,6 @@ angular.module('knitcalcApp')
       { 'value': '25', label: 'Men\'s large (25 inches / 63.5 cm)' }
     ];
 
-    $scope.yarnWeights = [
-      { 'factor': 1.6, 'label' : 'Lace' },
-      { 'factor': 1.4, 'label' : 'Light Fingering' },
-      { 'factor': 1.3, 'label' : 'Fingering' },
-      { 'factor': 1.2, 'label' : 'Sport' },
-      { 'factor': 1.1, 'label' : 'DK' },
-      { 'factor': 1, 'label' : 'Worsted' },
-      { 'factor': 0.9, 'label' : 'Aran' },
-      { 'factor': 0.7, 'label' : 'Bulky' },
-      { 'factor': 0.4, 'label' : 'Super Bulky' }
-    ];
-
     $scope.generate = function() {
       $scope.results = true;
       $scope.pattern.ease = Math.floor($scope.size * 0.85);
@@ -53,7 +42,7 @@ angular.module('knitcalcApp')
       calculator.radius($scope);
       hatCalculator.slope($scope);
       hatCalculator.squareInches($scope);
-      yardageFactor();
+      yarns.yardageFactor($scope);
       calculator.estimateYardage($scope);
       hatCalculator.multiples($scope);
       needles.setNeedles($scope);
@@ -61,14 +50,6 @@ angular.module('knitcalcApp')
       hatCalculator.beanie($scope);
       generateText();
     };
-
-    function yardageFactor() {
-      $scope.yarnWeights.forEach(function(el) {
-        if ($scope.yarn === el.label) {
-          $scope.pattern.yardageFactor = el.factor;
-        }
-      });
-    }
 
     function generateText() {
       if ($scope.pattern.multiple === 8) {
