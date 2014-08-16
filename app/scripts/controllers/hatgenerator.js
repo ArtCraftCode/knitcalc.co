@@ -57,7 +57,7 @@ angular.module('knitcalcApp')
       calculator.estimateYardage($scope);
       hatCalculator.multiples($scope);
       generateText();
-      setNeedles();
+      needles.setNeedles($scope);
       hatCalculator.slouch($scope);
       hatCalculator.beanie($scope);
     };
@@ -106,19 +106,5 @@ angular.module('knitcalcApp')
         $scope.pattern.ribbingRows = '2 inches (' + ribbing + ' rows)';
         $scope.pattern.bodyHeight = '6.5 inches (' + body + ' rows)';
       }
-    }
-
-    function setNeedles() {
-      $scope.needles.forEach(function(el, index, arr) {
-        if ($scope.needle === el.value) {
-          $scope.pattern.needle = el.label;
-
-          if (index > 0) {
-            $scope.pattern.smallerNeedle = arr[index-1].label;
-          } else {
-            $scope.pattern.smallerNeedle = el.label;
-          }
-        }
-      });
     }
   });

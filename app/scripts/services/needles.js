@@ -29,6 +29,20 @@ angular.module('knitcalcApp')
         { 'value': '8.0', 'label': 'US 11 (8.0 mm)' },
         { 'value': '9.0', 'label': 'US 13 (9.0 mm)' },
         { 'value': '10', 'label': 'US 15 (10.0 mm)' }
-      ]
+      ],
+
+      setNeedles: function($scope) {
+        $scope.needles.forEach(function(el, index, arr) {
+          if ($scope.needle === el.value) {
+            $scope.pattern.needle = el.label;
+
+            if (index > 0) {
+              $scope.pattern.smallerNeedle = arr[index-1].label;
+            } else {
+              $scope.pattern.smallerNeedle = el.label;
+            }
+          }
+        });
+      }
     };
   });
