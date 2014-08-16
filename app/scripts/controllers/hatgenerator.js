@@ -52,21 +52,15 @@ angular.module('knitcalcApp')
       calculator.gauge($scope);
       calculator.radius($scope);
       hatCalculator.slope($scope);
-      squareInches();
+      hatCalculator.squareInches($scope);
       yardageFactor();
       calculator.estimateYardage($scope);
       hatCalculator.multiples($scope);
-      generateText();
       needles.setNeedles($scope);
       hatCalculator.slouch($scope);
       hatCalculator.beanie($scope);
+      generateText();
     };
-
-    function squareInches() {
-      var one = 3.142 * $scope.pattern.radius * $scope.pattern.slope;
-      var two = 3.142 * $scope.pattern.radius * $scope.pattern.radius;
-      $scope.pattern.squareInches = one + two;
-    }
 
     function yardageFactor() {
       $scope.yarnWeights.forEach(function(el) {

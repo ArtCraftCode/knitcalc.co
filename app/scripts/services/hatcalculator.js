@@ -49,6 +49,12 @@ angular.module('knitcalcApp')
           $scope.pattern.multiple = 9;
           $scope.pattern.numDecreases = 9;
         }
+      },
+
+      squareInches: function($scope) {
+        var one = 3.142 * $scope.pattern.radius * $scope.pattern.slope;
+        var two = 3.142 * $scope.pattern.radius * $scope.pattern.radius;
+        $scope.pattern.squareInches = one + two;
       }
     };
   });
