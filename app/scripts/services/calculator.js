@@ -52,6 +52,12 @@ angular.module('knitcalcApp')
 
       radius: function($scope) {
         $scope.pattern.radius = $scope.size/(2*3.142);
+      },
+
+      estimateYardage: function($scope) {
+        var sqIn = $scope.pattern.squreInches;
+        var ydF = $scope.pattern.yardageFactor;
+        $scope.pattern.estimatedYardage = Math.floor(ydF * sqIn * 1.1);
       }
     };
   });
