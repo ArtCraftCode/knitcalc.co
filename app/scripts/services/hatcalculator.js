@@ -21,6 +21,14 @@ angular.module('knitcalcApp')
         { 'value': '25', label: 'Men\'s large (25 inches / 63.5 cm)' }
       ],
 
+      size: function($scope) {
+        $scope.sizes.forEach(function(el) {
+          if ($scope.size === el.value) {
+            $scope.pattern.size = el.label;
+          }
+        });
+      },
+
       slope: function ($scope) {
         if ($scope.size === 13) {
           $scope.pattern.slope = 6;
@@ -66,6 +74,29 @@ angular.module('knitcalcApp')
         var one = 3.142 * $scope.pattern.radius * $scope.pattern.slope;
         var two = 3.142 * $scope.pattern.radius * $scope.pattern.radius;
         $scope.pattern.squareInches = one + two;
+      },
+
+      crownDecreases: function($scope) {
+        var numSts = $scope.pattern.castOn / $scope.pattern.numDecreases;
+        var spacerSts = numSts - 2;
+        var numRpts = numSts - 1;
+        var stsRem = $scope.pattern.castOn - $scope.pattern.numDecreases;
+        var counter = 1;
+        var n = 0;
+        var instructions = [];
+
+        while (n < (numRpts - 1)) {
+          instructions.push('Round ' + counter + ': *k' + spacerSts + ', k2tog, rpt from * to end (' + stsRem + ' sts remaining).');
+          instructions.push('Round ' + (counter + 1) + ': k all sts.');
+          stsRem-=$scope.pattern.numDecreases;
+          counter++;
+          spacerSts--;
+          n++;
+        }
+
+        instructions.push('Next row: k2tog ' + $scope.pattern.numDecreases + ' times (' + stsRem + ' sts remaining).');
+
+        $scope.pattern.decreases = instructions;
       }
     };
   });
