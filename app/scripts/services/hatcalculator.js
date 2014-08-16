@@ -20,6 +20,18 @@ angular.module('knitcalcApp')
         } else {
           $scope.pattern.slope = 18;
         }
+      },
+
+      slouch: function($scope) {
+        var raw = $scope.pattern.castOn * 1.25;
+        $scope.pattern.slouch = Math.floor(raw + $scope.pattern.multiple - (raw % $scope.pattern.multiple));
+        $scope.pattern.slouchDecrease = ($scope.pattern.slouch / $scope.pattern.numDecreases) - 1;
+      },
+
+      beanie: function($scope) {
+        var raw = $scope.pattern.castOn * 0.90;
+        $scope.pattern.beanie = Math.floor(raw + $scope.pattern.multiple - (raw % $scope.pattern.multiple));
+        $scope.pattern.beanieDecrease = ($scope.pattern.beanie / $scope.pattern.numDecreases) - 2;
       }
     };
   });
