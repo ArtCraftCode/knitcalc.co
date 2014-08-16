@@ -53,6 +53,17 @@ angular.module('knitcalcApp')
       { 'value': '25', label: 'Men\'s large (25 inches / 63.5 cm)' }
     ];
 
+    $scope.yarnWeights = [
+      { 'factor': 1.6, 'label' : 'Lace' },
+      { 'factor': 1.4, 'label' : 'Light Fingering' },
+      { 'factor': 1.3, 'label' : 'Fingering' },
+      { 'factor': 1.2, 'label' : 'Sport' },
+      { 'factor': 1.1, 'label' : 'DK' },
+      { 'factor': 1, 'label' : 'Worsted' },
+      { 'factor': 0.9, 'label' : 'Aran' },
+      { 'factor': 0.7, 'label' : 'Bulky' },
+      { 'factor': 0.4, 'label' : 'Super Bulky' }
+    ];
 
     $scope.generate = function() {
       $scope.results = true;
@@ -62,6 +73,8 @@ angular.module('knitcalcApp')
       calculator.radius($scope);
       slope();
       squareInches();
+      yardageFactor();
+      calculator.estimateYardage($scope);
       mutiples();
       generateText();
       setNeedles();
@@ -83,6 +96,14 @@ angular.module('knitcalcApp')
       var one = 3.142 * $scope.pattern.radius * $scope.pattern.slope;
       var two = 3.142 * $scope.pattern.radius * $scope.pattern.radius;
       $scope.pattern.squareInches = one + two;
+    }
+
+    function yardageFactor() {
+      $scope.yarnWeights.forEach(function(el) {
+        if ($scope.yarn === el.label) {
+          $scope.pattern.yardageFactor = el.factor;
+        }
+      });
     }
 
     function mutiples() {

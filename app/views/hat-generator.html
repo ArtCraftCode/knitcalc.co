@@ -25,15 +25,7 @@
     </label>
 
     <select required name="yarn" id="yarn" ng-model="yarn">
-      <option value="Lace" id="Lace">Lace</option>
-      <option value="Light Fingering" id="Light Fingering">Light Fingering</option>
-      <option value="Fingering" id="Fingering">Fingering</option>
-      <option value="Sport" id="Sport">Sport</option>
-      <option value="DK" id="DK">DK</option>
-      <option value="Worsted" id="Worsted">Worsted</option>
-      <option value="Aran" id="Aran">Aran</option>
-      <option value="Bulky" id="Bulky">Bulky</option>
-      <option value="Super Bulky" id="Super Bulky">Super Bulky</option>
+      <option ng-repeat="yarn in yarnWeights" value="{{ yarn.label }}">{{ yarn.label }}</option>
     </select>
 
 
@@ -57,6 +49,7 @@
     Yarn: {{ yarn }}<br>
     Row gauge: {{ rowGauge }}<br>
     Stitch gauge: {{ stitchGauge }}<br>
+    Yardage factor: {{ pattern.yardageFactor }}<br>
 
     <p>Row gauge 4: {{ pattern.rowGauge4 }}</p>
 
