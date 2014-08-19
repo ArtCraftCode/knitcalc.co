@@ -1,19 +1,16 @@
 .menu {
-  background-image: url("../images/knit.png");
+  background: $pink;
   font-size: 80%;
   padding: 15px 0px;
   ul { margin: 0; }
   li {
     margin: 0;
-    &.active {
-      a { color: $pink; }
+    a {
+      margin: 0;
+      color: $white;
+      &:hover { color: $lightestGray; }
+      &.active { color: $lightestGray; }
     }
-  }
-  a {
-    margin: 0;
-    color: $lightGray;
-    &:hover { color: $pink; }
-    &.active { color: $pink; }
   }
 }
 
