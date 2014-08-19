@@ -1,18 +1,15 @@
 .menu {
-  font-size: 70%;
+  font-size: 80%;
   padding: 0px;
-  margin-bottom: 1%;
+  background-color: $pink;
   ul { margin: 0; }
   li {
     margin: 0;
     a {
       margin: 0;
-      color: $pink;
+      color: $white;
       &:hover { color: $lightestGray; }
       &.active { color: $lightestGray; }
-    }
-    &.bold {
-      background: lighten($lightestGray, 20%);
     }
   }
 }
