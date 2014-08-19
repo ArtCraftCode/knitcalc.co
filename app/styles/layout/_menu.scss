@@ -60,14 +60,10 @@
     font-size: 100%;
     ul {
       padding-left: 0;
-      border-top: 1px solid $lightestGray;
-      border-right: 1px solid $lightestGray;
-      border-left: 1px solid $lightestGray;
     }
     li {
       padding: 10px 10px;
       text-align: center;
-      border-bottom: 1px solid $lightestGray;
       &.bold {
         background: lighten($lightestGray, 20%);
       }
