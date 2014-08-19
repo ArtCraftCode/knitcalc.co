@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name knitcalcApp.controller:HatcrowndecreasesCtrl
+ * @name knitcalcApp.controller:HatCrownDecreasesCtrl
  * @description
- * # HatcrowndecreasesCtrl
+ * # HatCrownDecreasesCtrl
  * Controller of the knitcalcApp
  */
 angular.module('knitcalcApp')
-  .controller('HatcrowndecreasesCtrl', function ($scope) {
+  .controller('HatCrownDecreasesCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
