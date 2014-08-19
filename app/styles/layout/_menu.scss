@@ -1,19 +1,16 @@
 .menu {
-  background-image: url("../images/knit.png");
-  font-size: 80%;
-  padding: 15px 0px;
+  font-size: 90%;
+  padding: 0px;
+  background-color: $pink;
   ul { margin: 0; }
   li {
     margin: 0;
-    &.active {
-      a { color: $pink; }
+    a {
+      margin: 0;
+      color: $white;
+      &:hover { color: $lightestGray; }
+      &.active { color: $lightestGray; }
     }
-  }
-  a {
-    margin: 0;
-    color: $lightGray;
-    &:hover { color: $pink; }
-    &.active { color: $pink; }
   }
 }
 
@@ -23,7 +20,7 @@
     ul { display: inline; }
     li {
       display: inline;
-      padding: 5px 15px;
+      padding: 10px 15px;
     }
   }
 }
@@ -37,7 +34,7 @@
     }
     li {
       display: inline-block;
-      padding: 15px 15px;
+      padding: 10px 15px;
     }
   }
 }
@@ -59,6 +56,7 @@
 // iphones
 @media (max-width: 640px) {
   .menu {
+    background: $white;
     font-size: 100%;
     ul {
       padding-left: 0;
@@ -66,8 +64,12 @@
     li {
       padding: 10px 10px;
       text-align: center;
+      &.bold {
+        background: lighten($lightestGray, 20%);
+      }
+      a {
+        color: $pink;
+      }
     }
   }
 }
-
-// The iPhone is 320×480, the iPhone 4 is 640×960 and the iPhone 5 is 640×1136.

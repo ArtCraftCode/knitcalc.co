@@ -3,13 +3,13 @@
 
 @import "base/var";
 @import "components/alerts";
-@import "layout/sticky-footer";
+@import "layout/columns";
 @import "layout/menu";
 
 body {
   font-family: $serif;
   color: $gray;
-  font-size: 1.25em;
+  font-size: 1em;
 }
 
 p {
@@ -21,9 +21,12 @@ a {
   text-decoration: none;
 }
 
-#container {
-  max-width: 840px;
-  padding: 5% 2%;
+.container {
+  padding: 2%;
+}
+
+#content {
+  max-width: 1280px;
   margin: 0 auto;
 }
 
@@ -32,8 +35,9 @@ a {
 }
 
 .header {
+  padding-bottom: 1%;
   h1.jumbo {
-    font-size: 4em;
+    font-size: 3em;
     padding: 0;
     margin: 0;
   }
