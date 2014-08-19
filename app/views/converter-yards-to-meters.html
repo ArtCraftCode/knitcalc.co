@@ -1,16 +1,18 @@
 <div ng-controller="ConverterYardsToMetersCtrl as converter">
   <page-title></page-title>
-  <h2>Calculator</h2>
+  <div class="left">
+    <h2>Calculator</h2>
 
-  <form name="yToM" novalidate class="pure-form pure-form-stacked">
-    <label for="yards">Yards</label>
-    <input type="number" required name="yards" ng-model="yards">
+    <form name="yToM" novalidate class="pure-form pure-form-stacked">
+      <label for="yards">Yards</label>
+      <input type="number" required name="yards" ng-model="yards">
 
-    <input type="submit" class="pure-button" value="Convert!" ng-disabled="!yToM.$valid" ng-click="calculateMeters()"></input>
-  </form>
+      <input type="submit" class="pure-button" value="Convert!" ng-disabled="!yToM.$valid" ng-click="calculateMeters()"></input>
+    </form>
+  </div>
 
 
-  <div ng-show="results">
+  <div ng-show="results" class="right">
     <h2>Conversion</h2>
 
     <p>{{ yards }} yards is approximately {{ meters }} meters.</p>
