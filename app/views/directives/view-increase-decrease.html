@@ -1,8 +1,10 @@
-<h2>Calculator</h2>
-<!-- DIRECTIVE: simple-calculator -->
-<simple-calculator></simple-calculator>
+<div class="left">
+  <h2>Calculator</h2>
+  <!-- DIRECTIVE: simple-calculator -->
+  <simple-calculator></simple-calculator>
+</div>
 
-<div ng-show="results.visible">
+<div ng-show="results.visible" class="right">
   <h2>Instructions</h2>
   <p>To {{ action }} {{ results.difference }} sts across one row, work as follows:</p>
   <pre><code>{{ results.unbalanced }}</code></pre>
