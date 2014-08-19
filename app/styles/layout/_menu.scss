@@ -1,15 +1,18 @@
 .menu {
-  background: $pink;
-  font-size: 80%;
-  padding: 15px 0px;
+  font-size: 70%;
+  padding: 0px;
+  margin-bottom: 1%;
   ul { margin: 0; }
   li {
     margin: 0;
     a {
       margin: 0;
-      color: $white;
+      color: $pink;
       &:hover { color: $lightestGray; }
       &.active { color: $lightestGray; }
+    }
+    &.bold {
+      background: lighten($lightestGray, 20%);
     }
   }
 }
@@ -20,7 +23,7 @@
     ul { display: inline; }
     li {
       display: inline;
-      padding: 5px 15px;
+      padding: 10px 15px;
     }
   }
 }
@@ -34,7 +37,7 @@
     }
     li {
       display: inline-block;
-      padding: 15px 15px;
+      padding: 10px 15px;
     }
   }
 }
@@ -56,15 +59,24 @@
 // iphones
 @media (max-width: 640px) {
   .menu {
+    background: $white;
     font-size: 100%;
     ul {
       padding-left: 0;
+      border-top: 1px solid $lightestGray;
+      border-right: 1px solid $lightestGray;
+      border-left: 1px solid $lightestGray;
     }
     li {
       padding: 10px 10px;
       text-align: center;
+      border-bottom: 1px solid $lightestGray;
+      &.bold {
+        background: lighten($lightestGray, 20%);
+      }
+      a {
+        color: $pink;
+      }
     }
   }
 }
-
-// The iPhone is 320×480, the iPhone 4 is 640×960 and the iPhone 5 is 640×1136.
