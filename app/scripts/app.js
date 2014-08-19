@@ -43,7 +43,7 @@ angular
         templateUrl: 'views/hat-generator.html',
         controller: 'HatGeneratorCtrl'
       })
-      .when('hat/decreases', {
+      .when('/hat/decreases', {
         templateUrl: 'views/hat-crown-decreases.html',
         controller: 'HatCrownDecreasedCtrl'
       })
