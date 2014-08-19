@@ -39,6 +39,10 @@ angular
         templateUrl: 'views/abbreviations.html',
         controller: 'AbbreviationsCtrl'
       })
+      .when('/hat/generator', {
+        templateUrl: 'views/hat-generator.html',
+        controller: 'HatGeneratorCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

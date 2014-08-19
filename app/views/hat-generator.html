@@ -1,0 +1,104 @@
+<div ng-controller="HatGeneratorCtrl as hat">
+  <page-title></page-title>
+
+  <form name="hatForm" novalidate class="pure-form pure-form-stacked">
+    <label for="needle">
+      <p>Needle size</p>
+    </label>
+
+    <select required name="needle" id="needle" ng-model="needle">
+      <option ng-repeat="needle in needles" value="{{ needle.value }}">{{ needle.label }}</option>
+    </select>
+
+    <label for="size">
+      <p><strong>Head circumference (in inches)</strong></p>
+    </label>
+
+    <p class="help-block">Select carefully! Assumptions are made based on your selection.</p>
+
+    <select required name="size" id="size" ng-model="size">
+      <option ng-repeat="size in sizes" value="{{ size.value }}">{{ size.label }}</option>
+    </select>
+
+    <label for="yarn">
+      <p>Yarn weight</p>
+    </label>
+
+    <select required name="yarn" id="yarn" ng-model="yarn">
+      <option ng-repeat="yarn in yarnWeights" value="{{ yarn.label }}">{{ yarn.label }}</option>
+    </select>
+
+
+    <p><strong>Gauge</strong></p>
+    <p class="help-block">Stockinette or main body stitch motif</p>
+
+    <label for="rowGauge">Number of rows per inch</label>
+    <input type="number" required ng-model="rowGauge" name="rowGauge">
+
+    <label for="stitchGauge">Number of stitches per inch</label>
+    <input type="number" required ng-model="stitchGauge" name="stitchGauge">
+
+    <input type="submit" class="pure-button" ng-disabled="!hatForm.$valid" ng-click="generate()"></input>
+  </form>
+
+  <div ng-show="results">
+    <h2>Pattern</h2>
+    <p>This pattern provides instructions for a unisex hat with negative ease along the brim, and a slight slouch to the body (nothing too hipstery). Optional instructions are provided for a regular beanie or a slouchy cap.</p>
+
+    <table class="pure-table pure-table-horizontal">
+      <tbody>
+        <tr>
+          <td>Finished size</td>
+          <td>
+            {{ pattern.size }}<br>
+            {{ pattern.ease }} inch brim circumference with negative ease
+          </td>
+        </tr>
+        <tr>
+          <td>Needles</td>
+          <td>
+            {{ pattern.needle }} 16" circular needle<br>
+            {{ pattern.smallerNeedle }} 16" circular needle (for ribbing)
+          </td>
+        </tr>
+        <tr>
+          <td>Yarn</td>
+          <td>
+            Approximately {{ pattern.estimatedYardage }} yards ({{ pattern.estimatedMeters }} meters) of {{ yarn }} weight yarn.<br>
+            <em>These are estimates based on your gauge and selected yarn weight.</em>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Instructions</h3>
+
+    <h4>Set Up</h4>
+
+    <p>Using {{ pattern.smallerNeedle }} needle, loosely CO {{ pattern.castOn }} sts. PM and join for knitting in the round. Work in {{ pattern.ribbing }} ribbing for {{ pattern.ribbingRows }}. Switch to {{ pattern.needle }}.</p>
+
+    <p>For regular hats, proceed to <strong>Body</strong>.</p>
+
+    <p>For <strong>Slouchy</strong> hat or <strong>Beanie</strong>, work as indicated below.</p>
+
+    <p><strong>Slouchy Hat:</strong> Increase evenly to {{ pattern.slouch }} sts. Proceed to hat body.</p>
+
+    <p><strong>Beanie:</strong> Decrease evenly to {{ pattern.beanie }} sts. Proceed to hat body.</p>
+
+    <h4>Body</h4>
+    <p>Work in the round in your desired stitch motif for appromxiately {{ pattern.bodyHeight }}.</p>
+
+    <h4>Crown Decreases</h4>
+
+    <h5>Slouchy Hats</h5>
+    <p>Work first decrease row as: * k{{ pattern.slouchDecrease }}, k2tog, rpt from * to end.</p>
+    <p>Next decrease row: * k{{ pattern.slouchDecrease-1 }}, k2tog, rpt from * to end.</p>
+    <p>Continue in this manner until you have {{ pattern.castOn }} sts. Begin working from the Regular Hat decrease instructions (below). You may need to adjust the numbers slightly.</p>
+
+    <h5>Beanies</h5>
+    Work the Regular Hat decrease instructions (below), beginning with the row that starts with k{{ pattern.beanieDecrease }}. You may need to adjust the numbers slightly.
+
+    <h5>Regular Hats</h5>
+    <p ng-repeat="row in pattern.decreases">{{ row }}</p>
+  </div>
+</div>
