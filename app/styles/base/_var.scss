@@ -2,11 +2,13 @@
 $gray: #333333;
 $middleGray: lighten($gray, 10%);
 $lightGray: lighten($gray, 25%);
-$lightestGray: lighten($gray, 50%);
+$lightestGray: lighten($gray, 55%);
+$reallyLightestGray: lighten($gray, 77%);
 $white: #fff;
 
 $red: #FF1828;
 $pink: #FF5F60;
+$teal: #B5EBB9;
 
 // COLOR ALIASES // SEMANTIC NAMES
 $primary: $pink;
