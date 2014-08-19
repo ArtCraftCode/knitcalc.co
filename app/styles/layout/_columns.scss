@@ -9,3 +9,12 @@
   width: 63%;
   float: right;
 }
+
+// iphones
+@media (max-width: 640px) {
+  .left, .right {
+    float: none;
+    max-width: 640px;
+    width: 96%;
+  }
+}
