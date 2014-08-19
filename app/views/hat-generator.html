@@ -1,45 +1,52 @@
 <div ng-controller="HatGeneratorCtrl as hat">
   <page-title></page-title>
+  <div class="left">
+    <h2>Your Information</h2>
+    <form name="hatForm" novalidate class="pure-form pure-form-stacked">
+      <label for="needle">
+        <p>Needle size</p>
+      </label>
 
-  <form name="hatForm" novalidate class="pure-form pure-form-stacked">
-    <label for="needle">
-      <p>Needle size</p>
-    </label>
+      <select required name="needle" id="needle" ng-model="needle">
+        <option ng-repeat="needle in needles" value="{{ needle.value }}">{{ needle.label }}</option>
+      </select>
 
-    <select required name="needle" id="needle" ng-model="needle">
-      <option ng-repeat="needle in needles" value="{{ needle.value }}">{{ needle.label }}</option>
-    </select>
+      <label for="size">
+        <p><strong>Head circumference (in inches)</strong></p>
+      </label>
 
-    <label for="size">
-      <p><strong>Head circumference (in inches)</strong></p>
-    </label>
+      <p class="help-block">Select carefully! Assumptions are made based on your selection.</p>
 
-    <p class="help-block">Select carefully! Assumptions are made based on your selection.</p>
+      <select required name="size" id="size" ng-model="size">
+        <option ng-repeat="size in sizes" value="{{ size.value }}">{{ size.label }}</option>
+      </select>
 
-    <select required name="size" id="size" ng-model="size">
-      <option ng-repeat="size in sizes" value="{{ size.value }}">{{ size.label }}</option>
-    </select>
+      <label for="yarn">
+        <p>Yarn weight</p>
+      </label>
 
-    <label for="yarn">
-      <p>Yarn weight</p>
-    </label>
-
-    <select required name="yarn" id="yarn" ng-model="yarn">
-      <option ng-repeat="yarn in yarnWeights" value="{{ yarn.label }}">{{ yarn.label }}</option>
-    </select>
+      <select required name="yarn" id="yarn" ng-model="yarn">
+        <option ng-repeat="yarn in yarnWeights" value="{{ yarn.label }}">{{ yarn.label }}</option>
+      </select>
 
 
-    <p><strong>Gauge</strong></p>
-    <p class="help-block">Stockinette or main body stitch motif</p>
+      <p><strong>Gauge</strong></p>
+      <p class="help-block">Stockinette or main body stitch motif</p>
 
-    <label for="rowGauge">Number of rows per inch</label>
-    <input type="number" required ng-model="rowGauge" name="rowGauge">
+      <label for="rowGauge">Number of rows per inch</label>
+      <input type="number" required ng-model="rowGauge" name="rowGauge">
 
-    <label for="stitchGauge">Number of stitches per inch</label>
-    <input type="number" required ng-model="stitchGauge" name="stitchGauge">
+      <label for="stitchGauge">Number of stitches per inch</label>
+      <input type="number" required ng-model="stitchGauge" name="stitchGauge">
 
-    <input type="submit" class="pure-button" ng-disabled="!hatForm.$valid" ng-click="generate()"></input>
-  </form>
+      <input type="submit" class="pure-button" ng-disabled="!hatForm.$valid" ng-click="generate()"></input>
+    </form>
+  </div>
+
+  <div class="right">
+    <h2>Pattern</h2>
+    Hello! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse similique tempora, molestiae itaque, quae totam delectus ipsa, illo mollitia earum vero temporibus, commodi aut maxime impedit at explicabo? Cumque, animi.
+  </div>
 
   <div ng-show="results">
     <h2>Pattern</h2>

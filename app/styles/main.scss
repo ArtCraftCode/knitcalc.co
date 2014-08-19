@@ -3,7 +3,7 @@
 
 @import "base/var";
 @import "components/alerts";
-@import "layout/sticky-footer";
+@import "layout/columns";
 @import "layout/menu";
 
 body {
@@ -26,8 +26,7 @@ a {
 }
 
 #content {
-  max-width: 840px;
-  padding: 2%;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
