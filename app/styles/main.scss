@@ -22,8 +22,12 @@ a {
 }
 
 #container {
+  padding: 2%;
+}
+
+#content {
   max-width: 840px;
-  padding: 5% 2%;
+  padding: 2%;
   margin: 0 auto;
 }
 
@@ -32,6 +36,7 @@ a {
 }
 
 .header {
+  padding: 2% 0;
   h1.jumbo {
     font-size: 4em;
     padding: 0;
