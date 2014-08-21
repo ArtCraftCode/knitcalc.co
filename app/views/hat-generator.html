@@ -34,10 +34,10 @@
       <p><em>Stockinette or main body stitch motif</em></p>
 
       <label for="rowGauge">Number of rows per inch</label>
-      <input type="number" required ng-model="rowGauge" name="rowGauge">
+      <input type="number" min=1 required ng-model="rowGauge" name="rowGauge">
 
       <label for="stitchGauge">Number of stitches per inch</label>
-      <input type="number" required ng-model="stitchGauge" name="stitchGauge">
+      <input type="number" min=1 required ng-model="stitchGauge" name="stitchGauge">
 
       <input type="submit" class="pure-button" ng-disabled="!hatForm.$valid" ng-click="generate()"></input>
     </form>
