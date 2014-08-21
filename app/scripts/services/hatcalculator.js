@@ -99,6 +99,11 @@ angular.module('knitcalcApp')
         var n = 0;
         var instructions = [];
 
+        if (numSts % 1 !== 0) {
+          $scope.pattern.decreases = ['Sorry, this does not work with prime numbers!'];
+          return $scope.pattern.decreases;
+        }
+
         while (n < (numRpts - 1)) {
           instructions.push('Round ' + counter + ': *k' + spacerSts + ', k2tog, rpt from * to end (' + stsRem + ' sts remaining).');
           instructions.push('Round ' + (counter + 1) + ': k all sts.');
