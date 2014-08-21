@@ -31,13 +31,13 @@ angular.module('knitcalcApp')
 
       slope: function ($scope) {
         if ($scope.size === 13) {
-          $scope.pattern.slope = 6;
+          $scope.pattern.slope = 4;
         } else if ($scope.size === 15) {
-          $scope.pattern.slope = 8.5;
-        } else if ($scope.size >= 21) {
-          $scope.pattern.slope = 14.5;
+          $scope.pattern.slope = 6;
+        } else if ($scope.size <= 21) {
+          $scope.pattern.slope = 12;
         } else {
-          $scope.pattern.slope = 18;
+          $scope.pattern.slope = 16;
         }
       },
 
@@ -59,21 +59,33 @@ angular.module('knitcalcApp')
         var round9 = raw + 9 - (raw % 9);
         var min = Math.min(round8, round9);
 
+        var set;
+        $scope.pattern.castOn = min;
+
         if (min % 8 === 0) {
-          $scope.pattern.castOn = min;
-          $scope.pattern.multiple = 8;
-          $scope.pattern.numDecreases = 8;
+          set = 8;
         } else if (min % 9 === 0) {
-          $scope.pattern.castOn = min;
-          $scope.pattern.multiple = 9;
-          $scope.pattern.numDecreases = 9;
+          set = 9;
         }
+
+        $scope.pattern.multiple = set;
+        $scope.pattern.numDecreases = set;
+      },
+
+      manyMultiples: function($scope) {
+        // ordered by preference!
+        var multiples = [8, 9, 7, 6, 10, 12, 11, 13, 5];
+
+        multiples.forEach(function(el) {
+          if ($scope.stitches % el === 0 && !$scope.pattern.multiple) {
+            $scope.pattern.multiple = el;
+            $scope.pattern.numDecreases = el;
+          }
+        });
       },
 
       squareInches: function($scope) {
-        var one = 3.142 * $scope.pattern.radius * $scope.pattern.slope;
-        var two = 3.142 * $scope.pattern.radius * $scope.pattern.radius;
-        $scope.pattern.squareInches = one + two;
+        $scope.pattern.squareInches = 3.142 * $scope.pattern.radius * $scope.pattern.slope;
       },
 
       crownDecreases: function($scope) {
@@ -84,6 +96,11 @@ angular.module('knitcalcApp')
         var counter = 1;
         var n = 0;
         var instructions = [];
+
+        if (numSts % 1 !== 0) {
+          $scope.pattern.decreases = ['Sorry, this does not work with prime numbers!'];
+          return $scope.pattern.decreases;
+        }
 
         while (n < (numRpts - 1)) {
           instructions.push('Round ' + counter + ': *k' + spacerSts + ', k2tog, rpt from * to end (' + stsRem + ' sts remaining).');

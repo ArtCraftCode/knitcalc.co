@@ -4,7 +4,7 @@
     <h2>Your Information</h2>
     <form name="hatForm" novalidate class="pure-form pure-form-stacked">
       <label for="needle">
-        <p>Needle size</p>
+        <p><strong>Needle size</strong></p>
       </label>
 
       <select required name="needle" id="needle" ng-model="needle">
@@ -22,7 +22,7 @@
       </select>
 
       <label for="yarn">
-        <p>Yarn weight</p>
+        <p><strong>Yarn weight</strong></p>
       </label>
 
       <select required name="yarn" id="yarn" ng-model="yarn">
@@ -31,13 +31,13 @@
 
 
       <p><strong>Gauge</strong></p>
-      <p class="help-block">Stockinette or main body stitch motif</p>
+      <p><em>Stockinette or main body stitch motif</em></p>
 
       <label for="rowGauge">Number of rows per inch</label>
-      <input type="number" required ng-model="rowGauge" name="rowGauge">
+      <input type="number" min=1 step="0.25" required ng-model="rowGauge" name="rowGauge">
 
       <label for="stitchGauge">Number of stitches per inch</label>
-      <input type="number" required ng-model="stitchGauge" name="stitchGauge">
+      <input type="number" min=1 step="0.25" required ng-model="stitchGauge" name="stitchGauge">
 
       <input type="submit" class="pure-button" ng-disabled="!hatForm.$valid" ng-click="generate()"></input>
     </form>
@@ -66,8 +66,8 @@
         <tr>
           <td>Yarn</td>
           <td>
-            Approximately {{ pattern.estimatedYardage }} yards ({{ pattern.estimatedMeters }} meters) of {{ yarn }} weight yarn.<br>
-            <em>These are estimates based on your gauge and selected yarn weight.</em>
+            Approximately {{ pattern.estimatedYardageMin }} - {{ pattern.estimatedYardage }} yards ({{ pattern.estimatedMetersMin }} - {{ pattern.estimatedMeters }} meters) of {{ yarn }} weight yarn.<br>
+            <em>This range is an estimate based on your gauge and selected yarn weight.</em>
           </td>
         </tr>
       </tbody>

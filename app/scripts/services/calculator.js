@@ -59,6 +59,11 @@ angular.module('knitcalcApp')
         var ydF = $scope.pattern.yardageFactor;
         $scope.pattern.estimatedYardage = Math.floor(ydF * sqIn);
         $scope.pattern.estimatedMeters = Math.floor($scope.pattern.estimatedYardage / 1.0936);
+      },
+
+      estimatedYardageRange: function($scope) {
+        $scope.pattern.estimatedYardageMin = Math.floor($scope.pattern.estimatedYardage * 0.90);
+        $scope.pattern.estimatedMetersMin = Math.floor($scope.pattern.estimatedMeters * 0.90);
       }
     };
   });
