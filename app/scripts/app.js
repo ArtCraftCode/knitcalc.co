@@ -45,7 +45,7 @@ angular
       })
       .when('/hat/decreases', {
         templateUrl: 'views/hat-crown-decreases.html',
-        controller: 'HatCrownDecreasedCtrl'
+        controller: 'HatCrownDecreasesCtrl'
       })
       .otherwise({
         redirectTo: '/'
