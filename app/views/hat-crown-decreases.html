@@ -2,7 +2,20 @@
   <page-title></page-title>
   <div class="left">
     <h2>Your Information</h2>
+    <form name="hatDecreaseForm" novalidate class="pure-form pure-form-stacked">
+      <label for="stitches">
+        <p>Number of stitches on needle</p>
+      </label>
+
+      <p><em>This does not work with prime numbers!</em></p>
+
+      <input type="number" name="stitches" ng-model="stitches" required>
+
+      <input type="submit" class="pure-button" ng-disabled="!hatDecreaseForm.$valid" ng-click="generate()"></input>
+    </form>
   </div>
   <div class="right" ng-show="results">
+    <h2>Pattern</h2>
+    <p ng-repeat="row in pattern.decreases">{{ row }}</p>
   </div>
 </div>
