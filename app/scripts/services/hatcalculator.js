@@ -58,7 +58,9 @@ angular.module('knitcalcApp')
         var round8 = raw + 8 - (raw % 8);
         var round9 = raw + 9 - (raw % 9);
         var min = Math.min(round8, round9);
+
         var set;
+        $scope.pattern.castOn = min;
 
         if (min % 8 === 0) {
           set = 8;
@@ -66,9 +68,20 @@ angular.module('knitcalcApp')
           set = 9;
         }
 
-        $scope.pattern.castOn = min;
         $scope.pattern.multiple = set;
         $scope.pattern.numDecreases = set;
+      },
+
+      manyMultiples: function($scope) {
+        // ordered by preference!
+        var multiples = [8, 9, 7, 6, 10, 12, 11, 13, 5];
+
+        multiples.forEach(function(el) {
+          if ($scope.stitches % el === 0 && !$scope.pattern.multiple) {
+            $scope.pattern.multiple = el;
+            $scope.pattern.numDecreases = el;
+          }
+        });
       },
 
       squareInches: function($scope) {
