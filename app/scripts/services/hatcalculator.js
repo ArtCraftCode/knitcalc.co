@@ -31,13 +31,13 @@ angular.module('knitcalcApp')
 
       slope: function ($scope) {
         if ($scope.size === 13) {
-          $scope.pattern.slope = 6;
+          $scope.pattern.slope = 4;
         } else if ($scope.size === 15) {
-          $scope.pattern.slope = 8.5;
-        } else if ($scope.size >= 21) {
-          $scope.pattern.slope = 14.5;
+          $scope.pattern.slope = 6;
+        } else if ($scope.size <= 21) {
+          $scope.pattern.slope = 12;
         } else {
-          $scope.pattern.slope = 18;
+          $scope.pattern.slope = 16;
         }
       },
 
@@ -85,9 +85,7 @@ angular.module('knitcalcApp')
       },
 
       squareInches: function($scope) {
-        var one = 3.142 * $scope.pattern.radius * $scope.pattern.slope;
-        var two = 3.142 * $scope.pattern.radius * $scope.pattern.radius;
-        $scope.pattern.squareInches = one + two;
+        $scope.pattern.squareInches = 3.142 * $scope.pattern.radius * $scope.pattern.slope;
       },
 
       crownDecreases: function($scope) {
