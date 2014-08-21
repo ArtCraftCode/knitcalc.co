@@ -34,10 +34,10 @@
       <p><em>Stockinette or main body stitch motif</em></p>
 
       <label for="rowGauge">Number of rows per inch</label>
-      <input type="number" min=1 required ng-model="rowGauge" name="rowGauge">
+      <input type="number" min=1 step="0.25" required ng-model="rowGauge" name="rowGauge">
 
       <label for="stitchGauge">Number of stitches per inch</label>
-      <input type="number" min=1 required ng-model="stitchGauge" name="stitchGauge">
+      <input type="number" min=1 step="0.25" required ng-model="stitchGauge" name="stitchGauge">
 
       <input type="submit" class="pure-button" ng-disabled="!hatForm.$valid" ng-click="generate()"></input>
     </form>
@@ -67,7 +67,7 @@
           <td>Yarn</td>
           <td>
             Approximately {{ pattern.estimatedYardage }} yards ({{ pattern.estimatedMeters }} meters) of {{ yarn }} weight yarn.<br>
-            <em>These are estimates based on your gauge and selected yarn weight.</em>
+            <em>These are estimates based on your gauge and selected yarn weight and include approximately 15% wiggle room to allow for the slouchy hat option.</em>
           </td>
         </tr>
       </tbody>
