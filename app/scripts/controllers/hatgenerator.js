@@ -35,6 +35,7 @@ angular.module('knitcalcApp')
       hatCalculator.squareInches($scope);
       yarns.yardageFactor($scope);
       calculator.estimateYardage($scope);
+      calculator.estimatedYardageRange($scope);
       hatCalculator.multiples($scope);
       needles.setNeedles($scope);
       hatCalculator.slouch($scope);
