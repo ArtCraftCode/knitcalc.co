@@ -8,10 +8,17 @@
  * Controller of the knitcalcApp
  */
 angular.module('knitcalcApp')
-  .controller('HatCrownDecreasesCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('HatCrownDecreasesCtrl', function ($scope, hatCalculator) {
+    $scope.title = 'Hat Crown Decreases';
+    $scope.results = false;
+
+    $scope.stitches = 0;
+    $scope.pattern = {};
+
+    $scope.generate = function() {
+      $scope.results = true;
+      $scope.pattern.castOn = $scope.stitches;
+      hatCalculator.manyMultiples($scope);
+      hatCalculator.crownDecreases($scope);
+    };
   });
